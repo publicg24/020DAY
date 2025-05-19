@@ -11,10 +11,6 @@ Add-Type -AssemblyName System.Identit
 
 4. Crack Ticket
 
-
-
-
-
 setspn –a DC1/SVC_SQLService.ignite.local:60111 ignite\SVC_SQLService
 MSSQLsvc/DC1@ignite.loal
 
