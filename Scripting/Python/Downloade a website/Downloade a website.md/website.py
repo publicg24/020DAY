@@ -1,3 +1,6 @@
+# Add this at the top if your wkhtmltopdf isn't in system PATH
+config = pdfkit.configuration(wkhtmltopdf='/path/to/wkhtmltopdf')
+pdfkit.from_string(html, output_file, configuration=config)
 import os
 import requests
 import pdfkit
