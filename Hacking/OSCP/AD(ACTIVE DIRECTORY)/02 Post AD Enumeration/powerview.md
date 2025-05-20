@@ -1,7 +1,7 @@
 # POWERVIEW
 
-## To perform this we need at tool called powerview which is basically a powershell script\
-download from here [powerview](https://www.powershellgallery.com/packages/PowerSploit/3.0.0.0/Content/Recon%5CPowerView.ps1)\
+## To perform this we need at tool called powerview which is basically a powershell script
+download from here [powerview][def]
 
 #Commands
  >powershell -ep bypass\
@@ -124,3 +124,6 @@ download from here [powerview](https://www.powershellgallery.com/packages/PowerS
 
 
 
+
+
+[def]: https://www.powershellgallery.com/packages/PowerSploit/3.0.0.0/Content/Recon%5CPowerView.ps1
