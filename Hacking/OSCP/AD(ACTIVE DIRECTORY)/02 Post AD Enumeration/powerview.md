@@ -1,7 +1,10 @@
-#POWERVIEW\
-##To perform this we need at tool called powerview which is basically a powershell script\
-download from here https://www.powershellgallery.com/packages/PowerSploit/3.0.0.0/Content/Recon%5CPowerView.ps1\
-#Commands >powershell -ep bypass\
+# POWERVIEW
+
+## To perform this we need at tool called powerview which is basically a powershell script\
+download from here [powerview](https://www.powershellgallery.com/packages/PowerSploit/3.0.0.0/Content/Recon%5CPowerView.ps1)\
+
+#Commands
+ >powershell -ep bypass\
          >Import-Module .\powerview.ps1 
     >1. Get-NetUser
     >2. Get-NetUser | select cn 
