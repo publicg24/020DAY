@@ -5,8 +5,8 @@ bloodhound setup
 3. >sudo apt update && sudo apt install neo4j -y
 4. >sudo systemctl enable neo4j - this will creat a issue
 5.  >sudo nano /etc/systemd/system/neo4j.service
- note:add the below configuration into the neo4j.service\
- 
+ note:add the below configuration into the neo4j.service
+
                      [Unit]
                       Description=Neo4j Graph Database
                       After=network.target
@@ -33,4 +33,4 @@ for bloodhound instilation used deepseek
 
 credentials 
 admin/admin default
-admin/12345@bloodhounD (modified password
+admin/12345@bloodhounD (modified password)
