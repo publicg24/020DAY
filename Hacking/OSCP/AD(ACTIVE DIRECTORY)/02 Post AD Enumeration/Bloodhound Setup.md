@@ -31,6 +31,6 @@ now neo4j is ready
 ------------------------------------------------------------------------------------------
 for bloodhound instilation used deepseek
 
-credentials 
-admin/admin default
+credentials\
+admin/admin default\
 admin/12345@bloodhounD (modified password)
