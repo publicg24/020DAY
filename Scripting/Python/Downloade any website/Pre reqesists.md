@@ -1,6 +1,6 @@
 # Downloading a website/website prerequisites
 1. Need to downloade  python and set the path to environment vairables
-2. Need to downloade [wkhtmltopdf] (https://wkhtmltopdf.org/downloads.html)  for pdf conversion, in the below page there are 3 optoin for dowloading 1.pdf 2.docx 3.html 
+2. Need to downloade [wkhtmltopdf](https://wkhtmltopdf.org/downloads.html)  for pdf conversion, in the below page there are 3 optoin for dowloading 1.pdf 2.docx 3.html 
 Note: add the wkhtmltopdf also to the environment vairabiles
 3. install pip 
 >pip install requests pdfkit python-docx beautifulsoup4
