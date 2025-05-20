@@ -1,0 +1,66 @@
+# Directory Enum(RPC client)
+
+## Remote Procedure Call (RPC) is a service that helps establish and maintain communication between different Windows applications.
+
+![alt text](image-1.png)
+![alt text](image-2.png)
+![alt text](image-3.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
