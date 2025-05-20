@@ -1,5 +1,5 @@
-bloodhound setup
-
+# Bloodhound setup
+## Commands for kali linux
 1. >curl -fsSL https://debian.neo4j.com/neotechnology.gpg.key | sudo gpg --dearmor -o /usr/share/keyrings/neo4j.gpg
 2. >echo "deb [signed-by=/usr/share/keyrings/neo4j.gpg] https://debian.neo4j.com stable 5.x" | sudo tee /etc/apt/sources.list.d/neo4j.list
 3. >sudo apt update && sudo apt install neo4j -y
