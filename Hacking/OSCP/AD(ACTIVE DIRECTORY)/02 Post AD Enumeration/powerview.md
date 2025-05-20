@@ -4,15 +4,17 @@
 download from here [powerview][def]
 
 #Commands
- >powershell -ep bypass\
-         >Import-Module .\powerview.ps1 
-    >1. Get-NetUser
-    >2. Get-NetUser | select cn 
-    >3. Get-NetUser -UserName <any user name>
-    >4. Get-UserProperty  / Get-UserProperty -Properties pwdlastset
-    >5. Find-UserField 
-        a. Find-UserField -SearchField Description -SearchTerm "pass"
-        b. Find-UserField -SearchField Description -SearchTerm "built"
+>powershell -ep bypass
+
+>Import-Module .\powerview.ps1
+>1. Get-NetUser
+>2. Get-NetUser | select cn 
+>3. Get-NetUser -UserName <any user name>
+>4. Get-UserProperty  / Get-UserProperty -Properties pwdlastset
+#### 5. Find-UserField 
+>a. Find-UserField -SearchField Description -SearchTerm "pass"
+
+>b. Find-UserField -SearchField Description -SearchTerm "built"
     >6. Invoke-UserHunter / Invoke-UserHunter -CheckAccess
     >7. Get-NetDomain / Get-NetDomain -domain "your domain.local"
     >8. Get-NetDomainController / Get-NetDomainController -Domain yourdomain.local 
