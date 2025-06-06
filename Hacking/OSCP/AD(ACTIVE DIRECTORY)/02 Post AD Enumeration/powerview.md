@@ -3,7 +3,7 @@
 ## To perform this we need at tool called powerview which is basically a powershell script
 download from here [powerview][def]
 
-#Commands
+# Commands
 >powershell -ep bypass
 
 >Import-Module .\powerview.ps1
