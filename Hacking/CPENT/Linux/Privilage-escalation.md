@@ -53,4 +53,4 @@ nc -lvp 1234
 ```
 - GTFOBINS is helpful to find the suid files and how to use them to escalate the privileges
 Gtfobins link: https://gtfobins.github.io/
-- The main objective is to find 
+- The main objective is to find the suid files and use them to escalate the privileges
