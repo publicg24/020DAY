@@ -132,7 +132,7 @@ whereis <anything you want>
 ```bash
 python3 -m http.server 80
 ```
-- If you want to download a file from the linux machine to kali then you can use **wget** or **curl**
+- If you want to download a file from the kali linux to any other machine then you can use **wget** or **curl**
 ```bash
 wget <http://<kali linux IP>/file_name>
 curl <http://<kali linux IP>/file_name> -o <file_name>
