@@ -200,6 +200,12 @@ chmod +x linenum.sh
 # or you can use the following command to run it in the background
 ./linenum.sh > linenum_output.txt 2>&1 &
 ```
-- For Windows we have **WinPEAS** and **PowerUp** which are similar to LinPEAS and LinEnum
-```bash
-
+- For Windows we have **WinPEAS** you need to download it from the official repository then try to run it from powershell
+```powershell
+git clone https://github.com/carlospolop/PEAS.git
+cd PEAS
+chmod +x winpeas.bat
+./winpeas.bat
+# or you can use the following command to run it in the background
+./winpeas.bat > winpeas_output.txt 2>&1 &
+```
