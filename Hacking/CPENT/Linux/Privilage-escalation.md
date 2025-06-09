@@ -1,4 +1,4 @@
-#Linux Exploitation
+# Linux Exploitation
 ```bash
 nmap 2.0.0.22 target 1(metasploit)
 ```
@@ -96,7 +96,7 @@ or you can try bellow command
 echo "whoami > hi.txt" | at now
 cat hi.txt
 ```
-## Kernel Vulnerabilities and Application Vulnerabilities
+## Application Vulnerabilities
 
 - To list all the packages installed in the linux machine
 
