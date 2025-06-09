@@ -200,3 +200,6 @@ chmod +x linenum.sh
 # or you can use the following command to run it in the background
 ./linenum.sh > linenum_output.txt 2>&1 &
 ```
+- For Windows we have **WinPEAS** and **PowerUp** which are similar to LinPEAS and LinEnum
+```bash
+
