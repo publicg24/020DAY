@@ -57,7 +57,7 @@ nc -lvp 1234
 - GTFOBINS is helpful to find the suid files and how to use them to escalate the privileges
 Gtfobins link: https://gtfobins.github.io/
 
-- if there is any error while connecting try this 
+- if there is any error while connecting to the target machine try this  tweek
 ```bash
 kali-tweaks
 ```
