@@ -149,4 +149,25 @@ searchsploit Screen-4.5.0
 chmod +x <file_name>
 ./<file_name>
 ``` 
+## For Kernel Vulnerabilities
 
+- Use **uname -a** to see the kernel version. then you can search in google or in metasploit for the kernel version vulnerabilities.
+```bash
+uname -a
+searchsploit <kernel_version>
+```
+- if you use exploits from searchsploit like 5092.c then you need to compile it first then transfer it to the target machine and then execute it
+```bash
+gcc 5092.c -o 5092
+./5092
+```
+- Note: if it asks for the new line need to be added for the file when you compile it then you can use the following command
+```bash
+gcc 5092.c -o 5092 -fno-stack-protector
+# or
+gcc 5092.c -o 5092 -fno-stack-protector -z execstack  
+# or
+echo -e "\n" >> 5092.c 
+wc -l 5092.c
+gcc 5092.c -o 5092 -fno-stack-protector
+```
