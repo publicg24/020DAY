@@ -59,11 +59,6 @@ Gtfobins link: https://gtfobins.github.io/
 kali-tweaks
 ```
 - This box will opens now select **Hardining** then enable **SSH CLIENT** then click on **Apply**  button 
-![alt text](image-1.png)
-![alt text](image-2.png)
-...existing code...
-- This box will opens now select **Hardining** then enable **SSH CLIENT** then click on **Apply**  button 
 
 <img src="image-1.png" alt="alt text" width="400"/>
 <img src="image-2.png" alt="alt text" width="400"/>
-...existing code...
