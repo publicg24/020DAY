@@ -20,6 +20,7 @@ download from here [powerview][def]
 >a. Find-UserField -SearchField Description -SearchTerm "pass"
 
 >b. Find-UserField -SearchField Description -SearchTerm "built"
+
 >6. Invoke-UserHunter / Invoke-UserHunter -CheckAccess
 
 >7. Get-NetDomain / Get-NetDomain -domain "your domain.local"
