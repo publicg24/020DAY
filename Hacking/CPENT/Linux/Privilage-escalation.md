@@ -170,4 +170,7 @@ gcc 5092.c -o 5092 -fno-stack-protector -z execstack
 echo -e "\n" >> 5092.c 
 wc -l 5092.c
 gcc 5092.c -o 5092 -fno-stack-protector
+# or
+tail -n +2 5092.c > 5092_fixed.c
+gcc 5092_fixed.c -o 5092_fixed -fno-stack-protector
 ```
