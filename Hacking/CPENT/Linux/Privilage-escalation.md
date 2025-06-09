@@ -176,3 +176,27 @@ wc -l 5092_fixed.c
 tail -n +2 5092.c > 5092_fixed.c
 gcc 5092_fixed.c -o 5092_fixed -fno-stack-protector
 ```
+
+## Automation Tools for Enumeration
+- **LinPEAS**: A script that automates the process of privilege escalation enumeration on Linux systems.
+```bash
+git clone https://github.com/carlospolop/PEAS.git
+cd PEAS
+chmod +x linpeas.sh
+./linpeas.sh
+# or you can use the following command to run it
+./linpeas.sh | tee linpeas_output.txt
+# or you can use the following command to run it in the background
+./linpeas.sh > linpeas_output.txt 2>&1 &
+```
+- **LinEnum**: A script that automates the process of privilege escalation enumeration on Linux systems.
+```bash
+git clone https://github.com/rebootuser/LinEnum.git
+cd LinEnum
+chmod +x linenum.sh
+./linenum.sh
+# or you can use the following command to run it
+./linenum.sh | tee linenum_output.txt
+# or you can use the following command to run it in the background
+./linenum.sh > linenum_output.txt 2>&1 &
+```
