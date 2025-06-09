@@ -53,4 +53,11 @@ nc -lvp 1234
 ```
 - GTFOBINS is helpful to find the suid files and how to use them to escalate the privileges
 Gtfobins link: https://gtfobins.github.io/
-- The main objective is to find the suid files and use them to escalate the privileges
+
+- if there is any error while connecting try this 
+```bash
+kali-tweaks
+```
+- This box will opens now select **Hardining** then enable **SSH CLIENT** then click on **Apply**  button 
+![alt text](image-1.png)
+![alt text](image-2.png)
