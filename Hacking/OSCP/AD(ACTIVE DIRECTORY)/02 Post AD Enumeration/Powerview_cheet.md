@@ -85,6 +85,7 @@ Add-DomainGroupMember -Identity "Domain Admins" -Members "bb2" -Verbose
 
 # Verify
 Get-DomainGroupMember -Identity "Domain Admins" | Select-Object MemberName
+```
 --------------------------------------------------------------------------------------------------------
 
 ## with permission  - write all properties ✔ is  only enabled
