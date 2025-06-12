@@ -62,8 +62,6 @@ $group.Add("LDAP://CN=goodboy,CN=Users,DC=bank,DC=local")
 - Modify permissions	
 - Write properties	
 
-
----------------------------------------------------------------------------------
 ### with ✔ Modify permissions
 
 ```bash
