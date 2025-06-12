@@ -1,6 +1,6 @@
-#### Power view cheet
------------------------------------------------------------------------
-# Commands
+# Power view cheat sheet
+
+## Commands
 
 ```bash
 powershell -ep bypass
