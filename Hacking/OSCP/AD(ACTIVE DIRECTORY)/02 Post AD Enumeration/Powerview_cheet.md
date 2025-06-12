@@ -1,6 +1,7 @@
 # Power view cheat sheet
 
 ## Commands
+## Note: Domain = `bank.com`, User = `goodboy`, 
 
 ```bash
 powershell -ep bypass
