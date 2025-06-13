@@ -5,6 +5,11 @@ Diagram link - https://claude.ai/public/artifacts/fdc45792-13f6-470c-81dd-601e22
 
 ![alt text](image-4.png)
 
+- tools used in this diagram
+  - BloodHound
+  - Neo4j
+  - SharpHound
+
 
 
 
