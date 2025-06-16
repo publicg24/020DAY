@@ -64,14 +64,6 @@ DCSync Attack	secretsdump.py	Extracts password hashes from Active Directory.
 Golden Ticket Attack	ticketer.py	Forges Kerberos tickets for persistence.
 lookupsid	impacket-lookupsid	To get the user
 
-| Use Case     | Tool/Script    | Right-aligned |
-| :---         |     :---:      |          ---: |
-| git status   | git status     | git status    |
-| git diff     | git diff       | git diff      |
-| Left-aligned | Center-aligned | Right-aligned |
-| :---         |     :---:      |          ---: |
-| git status   | git status     | git status    |
-| git diff     | git diff       | git diff      |
 | Left-aligned | Center-aligned | Right-aligned |
 | :---         |     :---:      |          ---: |
 | git status   | git status     | git status    |
