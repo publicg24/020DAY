@@ -126,4 +126,29 @@ crackmapexec smb cicada.htb -u user.txt -p 'Cicada$M6Corpb*@Lp#nZp!8'
 ```
 ![alt text](image-7.png)
 - We can observe that the user michael is still using the old default password given by the AD
-
+- Let's try login with the it 
+![alt text](image-8.png)
+- Since we don't have access to any of other servers a michel.wrightson user lets try to find the other users smb-shares with this user as below
+```bash
+crackmapexec smb cicada.htb -u michael.wrightson -p 'Cicada$M6Corpb*@Lp#nZp!8' -- users 
+```
+![alt text](image-9.png)
+- This should give us the user descriptions data stored during the user creation. This might be not be empty sometimes.
+### Foothold
+----------------------------------------------------------------------------------
+- Lets check whether we have share access with David user
+```bash
+crackmapexec smb cicada.htb -u david.orelious -p 'aRt$Lp#7t*VQ!3' --shares 
+```
+![alt text](image-10.png)
+- Good david have the more shares  permission than guest user.
+- Now lets try to connect using smbclient  to see all the share first lets try with DEV share
+```bash
+smbclient //cicada.htb/DEV -U 'david.orelious%aRt$Lp#7t*VQ!3'
+```
+![alt text](image-11.png)
+- He is having a powershell script
+![alt text](image-12.png)
+- lets try to open it and we can see the pssword got converted into power shell string 
+- lets try to decrypt the string using the poweshell in kali,
+![alt text](image-13.png)
