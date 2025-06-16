@@ -52,7 +52,7 @@ smbclient  //cicada.htb/HR
 ![alt text](images/image-3.png)
 - And lets try reading what's inside the note---it seems we have default password for 1st time login
 ![alt text](images/image-4.png)
-.
+
 
 ----------------------------------------------------------------------------------------------------------------------
 ### Impackets - Impacket is an open-source toolkit
