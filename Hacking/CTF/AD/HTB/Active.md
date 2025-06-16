@@ -35,9 +35,9 @@ wmiexec.py active.htb/administrator:Ticketmaster1968@10.10.10.100
 ![alt text](Activeimages/image.png)
 ![alt text](Activeimages/image-1.png)
 
-#### Understanding the SMB share ports 
+##### Understanding the SMB share ports 
 
-| **Port**          | **Protocol**                                   |Service          | Description                                   |
+| **Port**          | **Protocol**                                   |**Service**          | **Description**                                   |
 |---------------|-------------------------------------------|---------------|-------------------------------------------|
 |445         | SMB (Server Message Block)                | smb           | File sharing and printer sharing over a network |
 |139         | NetBIOS Session Service                    | netbios-ssn  | Provides session services for NetBIOS over TCP/IP |
@@ -51,6 +51,7 @@ Understanding the LDAP ports
 |636         | LDAP over SSL (LDAPS)                      | ldaps         | Secure version of LDAP using SSL/TLS encryption |
 |3268        | Global Catalog (LDAP)                      | gc            | Provides a read-only replica of the Active Directory database for faster searches |
 |3269        | Global Catalog over SSL (LDAPS)            | gc-ssl        | Secure version of the Global Catalog using SSL/TLS encryption |
+
 - 2. Microsoft Active Directory-Specific Ports
 | Port          | Protocol                                   |Service          | Description                                   |
 |--------------|-------------------------------------------|---------------|-------------------------------------------|
@@ -61,6 +62,7 @@ Understanding the LDAP ports
 |636         | LDAP over SSL (LDAPS)                      | ldaps         | Secure version of LDAP using SSL/TLS encryption |
 |3268        | Global Catalog (LDAP)                      | gc            | Provides a read-only replica of the Active Directory database for faster searches |
 |3269        | Global Catalog over SSL (LDAPS)            | gc-ssl        | Secure version of the Global Catalog using SSL/TLS encryption |
+
 - 3. Additional LDAP-Related Ports
 | Port          | Protocol                                   |Service          | Description                                   |
 |--------------|-------------------------------------------|---------------|-------------------------------------------|
@@ -70,6 +72,7 @@ Understanding the LDAP ports
 |2004      | LDAP over SSL (LDAPS)                      | ldaps         | Secure version of LDAP using SSL/TLS encryption |
 |3535      | LDAP over SSL (LDAPS)                      | ldaps         | Secure version of LDAP using SSL/TLS encryption |
 |3536      | LDAP over SSL (LDAPS)                      | ldaps         | Secure version of LDAP using SSL/TLS encryption |
+
 - 4.  Ports Used in LDAP Attacks
 - When performing penetration testing or security assessments, these ports are critical:
 
