@@ -21,11 +21,12 @@
 ```bash
 nmap -sV -Pn 10.10.11.35
 ```
-Findings  -    Kerberos (port 88)
-        LDAP/S (ports 389, 636, 3268, 3269)
-        Domain: cicada.htb
-        Host: CICADA-DC
-        
+Findings  
+        -    Kerberos (port 88)
+        -    LDAP/S (ports 389, 636, 3268, 3269)
+        -    Domain: cicada.htb
+        -    Host: CICADA-DC
+
 - Note: As there is no web interface, the first thing we can check is the SMB shares.
 
 ### SMB shares
@@ -36,5 +37,6 @@ crackmapexec - a popular tool to automate enumerating domains (including users, 
 ![alt text](image.png)
 Note : if we specify any user the results would be much more better
 Lets take guest as user and no password.
-#crackmapexec smb cicada.htb -u 'guest' -p '' --shares
-
+```bash
+crackmapexec smb cicada.htb -u 'guest' -p '' --shares
+```
