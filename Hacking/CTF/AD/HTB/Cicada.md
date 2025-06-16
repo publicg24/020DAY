@@ -56,6 +56,7 @@ smbclient  //cicada.htb/HR
 ----------------------------------------------------------------------------------------------------------------------
 ### Impackets - Impacket is an open-source toolkit
 - Common Attacks & Exploits
+
 |Use Case|Tool/Script|Description|
 | :---         |     :---:      |          ---: |
 |Pass-the-Hash (PtH)|psexec.py, wmiexec.py|Executes commands using NTLM hashes.|
