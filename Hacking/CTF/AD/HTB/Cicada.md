@@ -55,7 +55,7 @@ smbclient  //cicada.htb/HR
 
 ----------------------------------------------------------------------------------------------------------------------
 ### Impackets - Impacket is an open-source toolkit
-Common Attacks & Exploits
+- Common Attacks & Exploits
 |Use Case|Tool/Script|Description|
 | :---         |     :---:      |          ---: |
 |Pass-the-Hash (PtH)|psexec.py, wmiexec.py|Executes commands using NTLM hashes.|
@@ -64,5 +64,16 @@ Common Attacks & Exploits
 |DCSync Attack|secretsdump.py|Extracts password hashes from Active Directory.|
 |Golden Ticket Attack|ticketer.py|Forges Kerberos tickets for persistence.|
 |lookupsid|impacket-lookupsid|To get the user|
+
+### Post-Exploitation & Enumeration
+
+| Tool          | Purpose                                   |
+|---------------|-------------------------------------------|
+| GetADUsers.py | Dumps AD user info via LDAP.             |
+|smbclient.py   | Interacts with SMB shares (like smbclient).|
+| smbmap.py     | Enumerates SMB shares and permissions.    |  
+| mssqlclient.py | Executes SQL queries on MSSQL servers. |
+| rpcdump.py     | Lists RPC endpoints on a target.         |
+
 
 
