@@ -34,6 +34,7 @@ wmiexec.py active.htb/administrator:Ticketmaster1968@10.10.10.100
 ### Namp
 ![alt text](Activeimages/image.png)
 ![alt text](Activeimages/image-1.png)
+
 #### Understanding the SMB share ports 
 
 | **Port**          | **Protocol**                                   |Service          | Description                                   |
