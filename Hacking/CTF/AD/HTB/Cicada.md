@@ -27,7 +27,7 @@ Findings
 - Domain: cicada.htb
 - Host: CICADA-DC.cicada.htb
 
-* Note: As there is no web interface, the first thing we can check is the SMB shares.
+**Note: As there is no web interface, the first thing we can check is the SMB shares.
 
 ### SMB shares
 -----------------------------------------------------------------------------------------
