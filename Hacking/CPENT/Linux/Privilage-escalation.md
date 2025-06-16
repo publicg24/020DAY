@@ -17,7 +17,7 @@ cat /etc/password - you can find the other users
 ```
 
 Horizontal escalation
--------------------------------
+-------------------------------------------------------------------------------
 since we know the user name lets try the password attack
 ```bash
 hydra -l marlinspike -P /usr/share/wordlists/john/lst 2.0.0.22 ssh -e nsr -t 4
@@ -63,9 +63,9 @@ kali-tweaks
 ```
 - This box will opens now select **Hardining** then enable **SSH CLIENT** then click on **Apply**  button 
 
-<img src="image-1.png" alt="alt text" width="400"/>
-<img src="image-2.png" alt="alt text" width="400"/>
-<img src="image-3.png" alt="alt text" width="400"/>
+<img src="Privilage-escalation-images/image-1.png" alt="alt text" width="400"/>
+<img src="Privilage-escalation-images/image-2.png" alt="alt text" width="400"/>
+<img src="Privilage-escalation-images/image-3.png" alt="alt text" width="400"/>
 
 - if you are able to see the ALL in the **sudo -l** then you can run any command with sudo
 
