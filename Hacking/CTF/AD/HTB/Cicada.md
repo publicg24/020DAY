@@ -21,13 +21,13 @@
 ```bash
 nmap -sV -Pn 10.10.11.35
 ```
-Findings  
-        -    Kerberos (port 88)
-        -    LDAP/S (ports 389, 636, 3268, 3269)
-        -    Domain: cicada.htb
-        -    Host: CICADA-DC
+Findings
+- Kerberos (port 88)
+- LDAP/S (ports 389, 636, 3268, 3269)
+- Domain: cicada.htb
+- Host: CICADA-DC.cicada.htb
 
-- Note: As there is no web interface, the first thing we can check is the SMB shares.
+* Note: As there is no web interface, the first thing we can check is the SMB shares.
 
 ### SMB shares
 -----------------------------------------------------------------------------------------
