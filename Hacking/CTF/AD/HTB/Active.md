@@ -34,9 +34,9 @@ wmiexec.py active.htb/administrator:Ticketmaster1968@10.10.10.100
 ### Namp
 ![alt text](Activeimages/image.png)
 ![alt text](Activeimages/image-1.png)
-- 1. Understanding the SMB share ports 
+#### Understanding the SMB share ports 
 
-| Port          | Protocol                                   |Service          | Description                                   |
+| **Port**          | **Protocol**                                   |Service          | Description                                   |
 |---------------|-------------------------------------------|---------------|-------------------------------------------|
 |445         | SMB (Server Message Block)                | smb           | File sharing and printer sharing over a network |
 |139         | NetBIOS Session Service                    | netbios-ssn  | Provides session services for NetBIOS over TCP/IP |
