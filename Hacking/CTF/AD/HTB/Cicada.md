@@ -58,5 +58,5 @@ smbclient  //cicada.htb/HR
 Common Attacks & Exploits
 |Use Case|Tool/Script|Description|
 | :---         |     :---:      |          ---: |
-
+|Pass-the-Hash (PtH)|psexec.py, wmiexec.py|Executes commands using NTLM hashes.|
 
