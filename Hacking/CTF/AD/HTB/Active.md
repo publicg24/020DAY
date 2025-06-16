@@ -53,6 +53,7 @@ wmiexec.py active.htb/administrator:Ticketmaster1968@10.10.10.100
 |3269        | Global Catalog over SSL (LDAPS)            | gc-ssl        | Secure version of the Global Catalog using SSL/TLS encryption |
 
 - Microsoft Active Directory-Specific Ports
+
 | Port          | Protocol                                   |Service          | Description                                   |
 |--------------|-------------------------------------------|---------------|-------------------------------------------|
 |88           | Kerberos                                   | kerberos      | Authentication protocol used in Active Directory | 
@@ -64,6 +65,7 @@ wmiexec.py active.htb/administrator:Ticketmaster1968@10.10.10.100
 |3269        | Global Catalog over SSL (LDAPS)            | gc-ssl        | Secure version of the Global Catalog using SSL/TLS encryption |
 
 - Additional LDAP-Related Ports
+
 | Port          | Protocol                                   |Service          | Description                                   |
 |--------------|-------------------------------------------|---------------|-------------------------------------------|
 |689         | LDAP over SSL (LDAPS)                      | ldaps         | Secure version of LDAP using SSL/TLS encryption |
