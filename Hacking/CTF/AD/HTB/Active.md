@@ -44,15 +44,15 @@ wmiexec.py active.htb/administrator:Ticketmaster1968@10.10.10.100
 |135         | Remote Procedure Call (RPC)                | msrpc         | Used for remote procedure calls and DCOM services |
 |137         | NetBIOS Name Service                      | netbios-ns    | Provides name services for NetBIOS over TCP/IP |
 |138         | NetBIOS Datagram Service                  | netbios-dgm   | Provides datagram services for NetBIOS over UDP |
-- Understanding the LDAP ports
-Understanding the LDAP ports
+
+- 1 . Understanding the LDAP ports
 | Port          | Protocol                                   |Service          | Description                                   |
 |389         | Lightweight Directory Access Protocol (LDAP) | ldap          | Used for accessing and maintaining distributed directory information services |
 |636         | LDAP over SSL (LDAPS)                      | ldaps         | Secure version of LDAP using SSL/TLS encryption |
 |3268        | Global Catalog (LDAP)                      | gc            | Provides a read-only replica of the Active Directory database for faster searches |
 |3269        | Global Catalog over SSL (LDAPS)            | gc-ssl        | Secure version of the Global Catalog using SSL/TLS encryption |
 
-- 2. Microsoft Active Directory-Specific Ports
+- 2 . Microsoft Active Directory-Specific Ports
 | Port          | Protocol                                   |Service          | Description                                   |
 |--------------|-------------------------------------------|---------------|-------------------------------------------|
 |88           | Kerberos                                   | kerberos      | Authentication protocol used in Active Directory | 
@@ -63,7 +63,7 @@ Understanding the LDAP ports
 |3268        | Global Catalog (LDAP)                      | gc            | Provides a read-only replica of the Active Directory database for faster searches |
 |3269        | Global Catalog over SSL (LDAPS)            | gc-ssl        | Secure version of the Global Catalog using SSL/TLS encryption |
 
-- 3. Additional LDAP-Related Ports
+- 3 . Additional LDAP-Related Ports
 | Port          | Protocol                                   |Service          | Description                                   |
 |--------------|-------------------------------------------|---------------|-------------------------------------------|
 |689         | LDAP over SSL (LDAPS)                      | ldaps         | Secure version of LDAP using SSL/TLS encryption |
@@ -73,7 +73,7 @@ Understanding the LDAP ports
 |3535      | LDAP over SSL (LDAPS)                      | ldaps         | Secure version of LDAP using SSL/TLS encryption |
 |3536      | LDAP over SSL (LDAPS)                      | ldaps         | Secure version of LDAP using SSL/TLS encryption |
 
-- 4.  Ports Used in LDAP Attacks
+- 4 . Ports Used in LDAP Attacks
 - When performing penetration testing or security assessments, these ports are critical:
 
 |Attack Type | Ports Used    |
