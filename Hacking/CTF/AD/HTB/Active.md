@@ -8,11 +8,11 @@
 ##  Enumeration and Exploiting tools:
 ```bash
     - Nmap
-        ○ nmap -Pn -sV -sC  10.10.10.100
+        nmap -Pn -sV -sC  10.10.10.100
     - SMB
-        ○ smbclient -L //10.10.10.100
-        ○ smbmap -H 10.10.10.100
-        ○ smbclient //10.10.10.100/Replication
+        smbclient -L //10.10.10.100
+        smbmap -H 10.10.10.100
+        smbclient //10.10.10.100/Replication
     - Foothold (First successful breach/Limited access/Starting point)
         ○ Group Policy Preferences
     - Authenticated Enumeration
