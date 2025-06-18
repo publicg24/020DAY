@@ -249,3 +249,9 @@ get the files from database server to webserver using get command
 ![alt text]({8C7EE66E-7210-4A41-BD71-688A33940DE1}.png)
 ![alt text]({4ECF2463-E933-4579-A0A5-FE6C3A41467D}.png)
 ![alt text]({A77CB047-01FE-42E3-BFC6-787E93C64517}.png)
+![alt text]({F0AB6D38-5800-470F-A6E6-88C5F61CCF71}.png)
+![alt text]({837A1D96-15B0-4EA2-B061-F11375A70559}.png)
+  11. Found Unknown SUID binary of screen-4.5.0
+![alt text]({B752F4F1-144A-4E78-AA3B-EAF06CAC10F5}.png)
+  12. We are going to user the exploit script  as above for entering into root shell
+link for the script  :- https://www.exploit-db.com/raw/41154
