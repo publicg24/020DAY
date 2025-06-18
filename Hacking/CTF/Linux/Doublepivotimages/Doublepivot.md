@@ -256,3 +256,9 @@ get the files from database server to webserver using get command
   12. We are going to user the exploit script  as above for entering into root shell
 link for the script  :- https://www.exploit-db.com/raw/41154
 ![alt text]({8B20A256-B6E1-4EEA-A823-54F7481265A8}.png)
+![alt text]({A59AB7FF-7021-4EAB-93DB-14BAB1E37514}.png)
+![alt text]({5681964C-C3F2-40FB-9A20-B9412DF66CB0}.png)
+![alt text]({42A0BB9C-FE90-4265-B6B3-3BBEA6ADF326}.png)
+  13. Run the exploit and from exploit db and got the vertical privilege access now go to the root folder and search for the flag
+
+ ![alt text](image-49.png)
