@@ -243,3 +243,6 @@ get the files from database server to webserver using get command
    9. Try to login with the donald credentials and now we are moving toward horizontal escalation.
    10. This time we are using linpease  download it from git and make a executable  and run the exploit interestingly found the files with interesting permissions
 ![alt text]({1625329E-EA5D-40B4-8B65-E688588175DD}.png)
+![alt text]({4A0A78A5-D01B-43D6-A659-0A39A56935CB}.png)
+![alt text]({D3EEBC6C-9125-4828-9CE9-F0E707A9853E}.png)
+![alt text]({FAD6E829-3AF4-4773-8F4A-15507BFB42D9}.png)
