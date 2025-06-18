@@ -122,6 +122,27 @@ Basic Netdiscover or arpsacn can work to get the ip address of the machine
    Username : pentester
    Password: qKnGByeaeQJWTjj2efHxst7Hu0xHADGO
 6. After login with credentials lets try to list the messages in this server and we have found one. Lets retrieve the mail with RETR 1 command. After retrieving and reading the mail we it is stating that there is a user called bob and his password is easy to guess.
-   After login with credentials lets try to list the messages in this server and we have found one. Lets retrieve the mail with RETR 1 command. After retrieving and reading the mail we it is stating that there is a user called bob and his password is easy to guess.
-   
- 
+![alt text](image-4.png)
+7.  So let us use create one more wordlist extracting bob,bobby words from the /wordlist.txt as below
+8. se Hydra with new word list will take 5 –10 min of time to brake the password.
+![alt text](image-5.png)
+9.  Login with the user name and password with the credential to port 2222
+![alt text](image-6.png)
+10.  Lets try to go horizontal escalation
+![alt text](image-7.png)
+11.  Found that there is bash file called  check.sh in /opt/scripts. From the script we can observe ther is another user called "my2user" so lets Try to execute check.sh file with my2user with small modification in it I.e., add "/bin/bash" in the seconded line of  bash code.
+![alt text](image-8.png)
+![alt text](image-9.png)
+12. 
+ After executing the check.sh with my2user we became my2user now
+ ![alt text](image-10.png)
+ 13.  Now try to find the files that are having permission to root/super user with the help of find tool
+![alt text](image-11.png)
+14.  As the /usr/bin/zip don't have the password as mentioned go to gtfobins and find the sudo for ZIP results are as follow
+![alt text](image-12.png)
+15.  After executing the privilege escalation with zip from gtfobins results are as follows
+![alt text](image-13.png)
+Or we can user the below single line of command as well.
+![alt text](image-14.png)
+16.  Now go to root folder as the and ther you can find the flag with 1_flag.txt
+
