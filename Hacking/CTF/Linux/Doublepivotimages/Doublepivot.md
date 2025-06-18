@@ -7,9 +7,9 @@ We have 3 servers to explore till root
 - Basic Netdiscover or arpscan can work to get the ip address of the machine
 ![alt text](image-1.png)
 - NMAP results are as follows
-```bash
+
 NMAP results are as follows
-  
+```bash
 #nmap -sV -Pn -p- -A 2.0.0.16
 Starting Nmap 7.94SVN ( https://nmap.org ) at 2025-04-15 20:03 IST
 Nmap scan report for 2.0.0.16
@@ -115,8 +115,6 @@ HOP RTT     ADDRESS
  
 OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 Nmap done: 1 IP address (1 host up) scanned in 91.30 seconds
- 
- 
 ```
 - After analyzing the Nmap results we found that there is port 80 is available  it in URL
 ![alt text](image-2.png)
