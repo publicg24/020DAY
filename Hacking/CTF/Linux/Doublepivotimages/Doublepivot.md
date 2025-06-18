@@ -246,3 +246,6 @@ get the files from database server to webserver using get command
 ![alt text]({4A0A78A5-D01B-43D6-A659-0A39A56935CB}.png)
 ![alt text]({D3EEBC6C-9125-4828-9CE9-F0E707A9853E}.png)
 ![alt text]({FAD6E829-3AF4-4773-8F4A-15507BFB42D9}.png)
+![alt text]({8C7EE66E-7210-4A41-BD71-688A33940DE1}.png)
+![alt text]({4ECF2463-E933-4579-A0A5-FE6C3A41467D}.png)
+![alt text]({A77CB047-01FE-42E3-BFC6-787E93C64517}.png)
