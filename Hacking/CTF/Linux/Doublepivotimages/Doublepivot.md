@@ -120,7 +120,7 @@ Basic Netdiscover or arpsacn can work to get the ip address of the machine
 5.  Lets try TELNET  with port 110 . Note:- they have mentioned above  strictly not to use 80,8000,9000
    Port 110
    Username : pentester
-    Password: qKnGByeaeQJWTjj2efHxst7Hu0xHADGO
+   Password: qKnGByeaeQJWTjj2efHxst7Hu0xHADGO
 6. After login with credentials lets try to list the messages in this server and we have found one. Lets retrieve the mail with RETR 1 command. After retrieving and reading the mail we it is stating that there is a user called bob and his password is easy to guess.
    After login with credentials lets try to list the messages in this server and we have found one. Lets retrieve the mail with RETR 1 command. After retrieving and reading the mail we it is stating that there is a user called bob and his password is easy to guess.
    
