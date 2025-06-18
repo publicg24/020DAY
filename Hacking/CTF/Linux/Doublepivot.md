@@ -240,23 +240,23 @@ get the files from database server to webserver using get command
    8. Then decrypt the file hash.tct with jonn here comes the password to open the zip file. After unzipping backup.zip file we observed a cards.txt file created. After opening it found the user credentials which is user for database server
    9. Try to login with the donald credentials and now we are moving toward horizontal escalation.
    10. This time we are using linpease  download it from git and make a executable  and run the exploit interestingly found the files with interesting permissions
-![alt text](Doublepivotimages/1625329E-EA5D-40B4-8B65-E688588175DD.png)
-![alt text](Doublepivotimages/4A0A78A5-D01B-43D6-A659-0A39A56935CB.png)
-![alt text](Doublepivotimages/D3EEBC6C-9125-4828-9CE9-F0E707A9853E.png)
-![alt text](Doublepivotimages/FAD6E829-3AF4-4773-8F4A-15507BFB42D9.png)
-![alt text](Doublepivotimages/8C7EE66E-7210-4A41-BD71-688A33940DE1.png)
-![alt text](Doublepivotimages/4ECF2463-E933-4579-A0A5-FE6C3A41467D.png)
-![alt text](Doublepivotimages/A77CB047-01FE-42E3-BFC6-787E93C64517.png)
-![alt text](Doublepivotimages/F0AB6D38-5800-470F-A6E6-88C5F61CCF71.png)
-![alt text](Doublepivotimages/837A1D96-15B0-4EA2-B061-F11375A70559.png)
+![alt text]({Doublepivotimages/1625329E-EA5D-40B4-8B65-E688588175DD}.png)
+![alt text]({4A0A78A5-D01B-43D6-A659-0A39A56935CB}.png)
+![alt text]({D3EEBC6C-9125-4828-9CE9-F0E707A9853E}.png)
+![alt text]({FAD6E829-3AF4-4773-8F4A-15507BFB42D9}.png)
+![alt text]({8C7EE66E-7210-4A41-BD71-688A33940DE1}.png)
+![alt text]({4ECF2463-E933-4579-A0A5-FE6C3A41467D}.png)
+![alt text]({A77CB047-01FE-42E3-BFC6-787E93C64517}.png)
+![alt text]({F0AB6D38-5800-470F-A6E6-88C5F61CCF71}.png)
+![alt text]({837A1D96-15B0-4EA2-B061-F11375A70559}.png)
   11. Found Unknown SUID binary of screen-4.5.0
-![alt text](Doublepivotimages/B752F4F1-144A-4E78-AA3B-EAF06CAC10F5.png)
+![alt text]({B752F4F1-144A-4E78-AA3B-EAF06CAC10F5}.png)
   12. We are going to user the exploit script  as above for entering into root shell
 link for the script  :- https://www.exploit-db.com/raw/41154
-![alt text](Doublepivotimages/8B20A256-B6E1-4EEA-A823-54F7481265A8.png)
-![alt text](Doublepivotimages/A59AB7FF-7021-4EAB-93DB-14BAB1E37514.png)
-![alt text](Doublepivotimages/5681964C-C3F2-40FB-9A20-B9412DF66CB0.png)
-![alt text](Doublepivotimages/42A0BB9C-FE90-4265-B6B3-3BBEA6ADF326.png)
+![alt text]({8B20A256-B6E1-4EEA-A823-54F7481265A8}.png)
+![alt text]({A59AB7FF-7021-4EAB-93DB-14BAB1E37514}.png)
+![alt text]({5681964C-C3F2-40FB-9A20-B9412DF66CB0}.png)
+![alt text]({42A0BB9C-FE90-4265-B6B3-3BBEA6ADF326}.png)
   13. Run the exploit and from exploit db and got the vertical privilege access now go to the root folder and search for the flag
 
  ![alt text](Doublepivotimages/image-49.png)
