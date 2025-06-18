@@ -255,3 +255,4 @@ get the files from database server to webserver using get command
 ![alt text]({B752F4F1-144A-4E78-AA3B-EAF06CAC10F5}.png)
   12. We are going to user the exploit script  as above for entering into root shell
 link for the script  :- https://www.exploit-db.com/raw/41154
+![alt text]({8B20A256-B6E1-4EEA-A823-54F7481265A8}.png)
