@@ -242,3 +242,4 @@ get the files from database server to webserver using get command
    8. Then decrypt the file hash.tct with jonn here comes the password to open the zip file. After unzipping backup.zip file we observed a cards.txt file created. After opening it found the user credentials which is user for database server
    9. Try to login with the donald credentials and now we are moving toward horizontal escalation.
    10. This time we are using linpease  download it from git and make a executable  and run the exploit interestingly found the files with interesting permissions
+![alt text]({1625329E-EA5D-40B4-8B65-E688588175DD}.png)
