@@ -1,0 +1,3 @@
+```bash
+Generate a shell script to perform enumeration on the target domain (e.g., microsoft.com) to extract subdomains using the dnsmap tool, parallel domains using the urlcrazy -p command, WHOIS lookup data using the whois command, DNS records using the dnsrecon tool, and check for zone transfers using the dig command. The command should organize and display the results in clearly labeled sections for each type of information.
+```
