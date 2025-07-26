@@ -75,7 +75,5 @@
 ![74](images/74.png)
 ![75](images/75.png)
 ![76](images/76.png)
-![77](images/77.png)
-![78](images/78.png)
-![79](images/79.png)
-![80](images/80.png)
+
+
