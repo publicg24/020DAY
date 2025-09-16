@@ -23,32 +23,32 @@ sudo apt remove burpsuite
 Note: Environment variables setup
 
 ```bash
-    sudo nano /etc/environment.d/java24.conf
+sudo nano /etc/environment.d/java24.conf
 ```
   - add the following lines:
 ```bash
-    JAVA_HOME="/usr/lib/jvm/jdk-24.0.2"
-    PATH="$PATH:$JAVA_HOME/bin"
+JAVA_HOME="/usr/lib/jvm/jdk-24.0.2"
+PATH="$PATH:$JAVA_HOME/bin"
 ```
   - Save and exit the file.
 ```bash
-  source /etc/environment.d/java24.conf
+source /etc/environment.d/java24.conf
 ```
   - Verify the installation:
 ```bash
-  echo $JAVA_HOME    # Should show `/usr/lib/jvm/jdk-24.0.2`
-  java -version      # Should show Java 24
+echo $JAVA_HOME    # Should show `/usr/lib/jvm/jdk-24.0.2`
+java -version      # Should show Java 24
 ```
 - open the downloaded Burp Suite Pro directory
 ```bash
-   unzip BurpSuitePro-2025.6.zip
-   cd BurpSuitePro-2025.6
-   java -jar burploader.jar
+unzip BurpSuitePro-2025.6.zip
+cd BurpSuitePro-2025.6
+java -jar burploader.jar
 ```
 1. open the burploader.jar file
-     ```bash
-   java -jar burploader.jar
-    ```
+```bash
+java -jar burploader.jar
+```
 ![alt text](images/image-1.png)
 ![alt text](images/image-2.png)
 1. click Next
