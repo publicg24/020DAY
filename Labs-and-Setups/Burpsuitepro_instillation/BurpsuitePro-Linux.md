@@ -41,7 +41,7 @@ java -version      # Should show Java 24
 ```
 - open the downloaded Burp Suite Pro directory
 ```bash
-unzip burpsuite_pro-v2025.6.1.zip
+unzip burpsuite_pro_v2025.6.1.zip
 cd burpsuite_pro-v2025.6.1
 java -jar burploader.jar
 ```
