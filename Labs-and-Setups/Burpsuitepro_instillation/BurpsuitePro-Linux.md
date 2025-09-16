@@ -36,8 +36,8 @@ Note: Environment variables setup
 ```
   - Verify the installation:
 ```bash
-echo $JAVA_HOME    # Should show `/usr/lib/jvm/jdk-24.0.2`
-java -version      # Should show Java 24
+  echo $JAVA_HOME    # Should show `/usr/lib/jvm/jdk-24.0.2`
+  java -version      # Should show Java 24
 ```
 - open the downloaded Burp Suite Pro directory
 ```bash
